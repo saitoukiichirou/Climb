@@ -16,12 +16,12 @@ class ClimbController extends Controller
 
     public function dailyRecords()
     {
-        return view('daily_records');
+//        return view('daily_records');
     }
 
     public function scoreBoards()
     {
-        return view('score_boards');
+//        return view('score_boards');
     }
 
     public function problemsList()

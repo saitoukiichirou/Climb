@@ -44,20 +44,17 @@
                                 </select>
                             </div>
 
-                            <div class="input-group mr-sm-2">
-{{--                                チェックボックス--}}
+                            <div class="input-group mr-sm-2 mt-3">
+{{--                                カスタムチェックボックス--}}
                                 <div class="d-flex flex-warp">
                                     @foreach($user->rents as $rent)
-                                        <div class="input-group flex-wrap">
-                                            <div class="input-group-text w-auto">
-                                                <input type="checkbox" name="prices[]" aria-label="Checkbox for following text input" value="{{$rent->id}}">{{$rent->item}}
-                                            </div>
-                                        </div>
+                                        <input type="checkbox" name="prices[]" class="btn-check" id="{{$rent->id}}" value="{{$rent->id}}" autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="{{$rent->id}}">{{$rent->item}}</label><br>
                                     @endforeach
                                 </div>
 {{--                                ここまで　チェックボックス--}}
                             </div>
-                            <button class="btn btn-primary form-control" type="submit">料金確定</button>
+                            <button class="btn btn-primary form-control mt-3" type="submit">料金確定</button>
                         </form>
                     </div>
                 @else

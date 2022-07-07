@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProblemsTable extends Migration
+class CreateScoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateProblemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('problems', function (Blueprint $table) {
+        Schema::create('scores', function (Blueprint $table) {
             $table->id();
-            $table->string('dimension', 10);
-            $table->string('grade', 10);
-            $table->string('hold_color', 10);
-            $table->string('tape_form', 10);
-            $table->string('setter', 100)->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('problem_id');
+            $table->boolean('status');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateProblemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('problems');
+        Schema::dropIfExists('scores');
     }
 }

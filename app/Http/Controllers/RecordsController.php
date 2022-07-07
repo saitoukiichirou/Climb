@@ -35,7 +35,7 @@ class RecordsController extends Controller
         if (!is_null($user_id)) {
             //バリデーション
             $request->validate([
-                'id' => ['required', 'int', 'max:10000']//'required|max:255',
+                'id' => ['required', 'int', 'max:10000']
             ]);
 
             //検索したuser_idがuserテーブルに存在するかチェック, 無かった場合はエラーメッセージを返す
@@ -69,7 +69,7 @@ class RecordsController extends Controller
                 $price_id = $item->price_id;
                 $price_id_class = Price::where('id', $price_id)->value('class');
 
-                //利用時間を入れる
+                //利用時間を追加
                 //商品のカテゴリ（クラス）が利用時間に関する物をif分で選別
                 if ($user_class == $price_id_class) {
                     $use_time = Price::find($price_id, ['item', 'price']);

@@ -52,6 +52,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Role');
     }
+    public function scores(){
+        return $this->hasMany('App\Models\Score');
+    }
 
     public static function editUser($edit_user_array)
     {

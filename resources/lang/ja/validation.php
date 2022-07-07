@@ -153,6 +153,12 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'dimension'=>'セット面',
+        'grade'=>'グレード',
+        'hold_color'=>'ホールド色',
+        'tape_form'=>'テープ色',
+        'setter'=>'セッター名',
+    ],
 
 ];
