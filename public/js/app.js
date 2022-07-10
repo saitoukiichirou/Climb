@@ -1219,4 +1219,28 @@ var tab = new Swiper('.tab-content', {
             slidesPerView: 4,
         }
     },
+
+    slideActiveClass: 'swiper-slide-active',
+
 });
+//ここから追加
+    // galleryThumbs.on('tap', function () {
+    //     const current = galleryTop.activeIndex;
+    //     galleryThumbs.slideTo(current, 500, true);
+
+
+// const galleryThumbs = new Swiper('.tab-menu', {
+// spaceBetween: 20,
+// slidesPerView: 'auto',
+// freeMode: false,
+// watchSlidesVisibility: true,
+// watchSlidesProgress: true,
+//     slideActiveClass: 'swiper-slide-active'
+// });
+//
+// const galleryTop = new Swiper('.tab-contents', {
+// autoHeight: true,
+// thumbs: {
+// swiper: galleryThumbs
+// }
+// });

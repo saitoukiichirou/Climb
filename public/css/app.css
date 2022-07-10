@@ -11289,72 +11289,134 @@ textarea.form-control-lg {
 
 .liked {
     /*color: #ff34cb;*/
-    color: #00ff42;
+    color: #ffd500;
 }
 
 .tab-menu {
-    .swiper-wrapper {
-        .swiper-slide {
-            padding: 20px 0;
-            text-align: center;
-            color: #555555;
-            background-color: #ffffff;;
-            cursor: pointer;
-            border-right: 2px solid #2f3640;
-
-        &:last-child {
-             border: 0;
-         }
-        }
-
-        .swiper-slide-thumb-active {
-            background-color: #cccccc;
-        }
-    }
+    background: #f5f5f5;
+    border-bottom: 1px solid #CCC;
 }
 
-
-.tab-content {
-
-    .swiper-wrapper {
-
-        .swiper-slide {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-
-        h1 {
-            width: 100%;
-            margin: 20px 0;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-            .post {
-                width: calc(94% / 3);
-                margin: 0 0 28px 0;
-                background-color: #ffffff;
-
-                a {
-                    display: block;
-                    text-decoration: none;
-                    img {
-                        width: 100%;
-                    }
-
-                h2 {
-                    padding: 10px;
-                    color: #555555;
-                    font-size: 1.14rem;
-                    font-weight: bold;
-                }
-
-                    p {
-                        padding: 0 10px 10px 10px;
-                        color: #555555;
-                    }
-                }
-            }
-        }
-    }
+.tab-menu .swiper-slide {
+    width: auto;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 5px solid rgb(157, 157, 153);
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
 }
+    /*1つ目のメニュー"A"の区切り線調整*/
+.tab-menu .swiper-slide:first-child {
+    border-left: 0;
+}
+
+    /*アクティブなメニュータブ*/
+.swiper-slide-thumb-active {
+    border-bottom: 5px solid rgb(61, 61, 58) !important;
+    /*color: #fff;*/
+    color: rgb(61, 61, 58);
+    background: #d0d0c6;
+    font-weight: bold;
+}
+
+.btn-circle {
+    border-radius: 50%;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    background: #565652;
+    box-shadow: 0 2px 0 #3d3d3a;
+}
+
+/*マウスオン時の動作, いらないかも*/
+/*.btn-circle:hover {*/
+/*    transform: translate(0, 2px);*/
+/*    -webkit-box-shadow: 0 2px 0 #3d3d3a;*/
+/*    box-shadow: 0 2px 0 #3d3d3a;*/
+/*}*/
+
+/*.tab-menu {*/
+/*    .swiper-wrapper {*/
+/*        .swiper-slide {*/
+/*            padding: 20px 0;*/
+/*            text-align: center;*/
+/*            color: #555555;*/
+/*            background-color: #ffffff;;*/
+/*            cursor: pointer;*/
+/*            border-right: 2px solid #2f3640;*/
+
+/*        &:last-child {*/
+/*             border: 0;*/
+/*         }*/
+/*        }*/
+
+/*        !*.swiper-slide-thumb-active {*!*/
+/*        !*    background-color: #cccccc;*!*/
+/*        !*}*!*/
+/*    }*/
+/*}*/
+
+/*.tab-content {*/
+
+/*    .swiper-wrapper {*/
+
+/*        .swiper-slide {*/
+/*            display: flex;*/
+/*            flex-wrap: wrap;*/
+/*            justify-content: space-between;*/
+
+/*            h1 {*/
+/*                width: 100%;*/
+/*                margin: 20px 0;*/
+/*                color: white;*/
+/*                font-size: 1.5rem;*/
+/*            }*/
+
+/*            .post {*/
+/*                width: calc(94% / 3);*/
+/*                margin: 0 0 28px 0;*/
+/*                background-color: #ffffff;*/
+
+/*                a {*/
+/*                    display: block;*/
+/*                    text-decoration: none;*/
+/*                    img {*/
+/*                        width: 100%;*/
+/*                    }*/
+
+/*                    h2 {*/
+/*                        padding: 10px;*/
+/*                        color: #555555;*/
+/*                        font-size: 1.14rem;*/
+/*                        font-weight: bold;*/
+/*                    }*/
+
+/*                    p {*/
+/*                        padding: 0 10px 10px 10px;*/
+/*                        color: #555555;*/
+/*                    }*/
+/*                }*/
+/*            }*/
+/*        }*/
+/*    }*/
+/*}*/
+
+
+/*.container {*/
+/*    max-width: 375px;*/
+/*    margin: 30px auto;*/
+/*    border: 1px solid #CCC;*/
+/*}*/
+/*.swiper{*/
+/*    margin: 0 auto 30px;*/
+/*}*/
+
+
+
+/*.tab-contents {*/
+/*    margin: 30px auto;*/
+/*}*/
+
+/*.tab-contents {*/
+/*    margin: 30px auto;*/
+/*}*/
