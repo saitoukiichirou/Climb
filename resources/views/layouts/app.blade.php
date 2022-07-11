@@ -54,28 +54,56 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                            <li class="nav-item nav-item-right">
+                                <a href="{{ route('home') }}" class="nav-link {{url()->current()==route('home')? 'active' : ''}}">
+                                    <i class="fas fa-home pr-2"></i><span> ホーム</span>
+                                </a>
+                            </li>
+
+                            @can('admin')
+                                <li class="nav-item nav-item-right">
+                                    <a href="{{ route('users_list.index') }}" class="nav-link {{url()->current()==route('users_list.index')? 'active' : ''}}">
+                                        <i class="fa-solid fa-address-book pr-2"></i><span> 会員名簿</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item nav-item-right">
+                                    <a href="{{ route('records.index') }}" class="nav-link {{url()->current()==route('records.index')? 'active' : ''}}">
+                                        <i class="fa-solid fa-pen-to-square pr-2"></i><span> 利用記録</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item nav-item-right">
+                                    <a href="{{ route('problems.index') }}" class="nav-link {{url()->current()==route('problems.index')? 'active' : ''}}">
+                                        <i class="fa-solid fa-file-lines"></i><span> 課題管理</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item nav-item-right">
+                                    <a href="{{ route('scores.index') }}" class="nav-link {{url()->current()==route('scores.index')? 'active' : ''}}">
+                                        <i class="fa-solid fa-circle-check pr-2"></i><span> スコア表</span>
+                                    </a>
+                                </li>
+                            @endcan
+
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item">
+                                <li class="nav-item nav-item-right">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <li class="nav-item nav-item-right">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
+                            <li class="nav-item nav-item-right dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    <i class="fa-solid fa-user-pen pl-2"></i>{{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -97,16 +125,16 @@
         </nav>
 
         <main class="py-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-md-4 col-lg-2">
-                        @include('layouts.sidebar')
-                    </div>
-                    <div class="col-12 col-md-8 col-lg-9">
+{{--            <div class="container">--}}
+{{--                <div class="row">--}}
+{{--                    <div class="col-12 col-md-4 col-lg-2 ">--}}
+{{--                        @include('layouts.sidebar')--}}
+{{--                    </div>--}}
+{{--                    <div class="col-12 col-md-8 col-lg-9">--}}
                         @yield('content')
-                    </div>
-                </div>
-            </div>
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </main>
     </div>
 </body>

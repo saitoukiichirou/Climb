@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            {{--            <div class="col-md-8">--}}
+                        <div class="col-md-10">
             <div class="md-8">
                 <div class="card">
                     <div class="card-header">{{ __('会員情報編集') }}</div>
@@ -132,7 +132,7 @@
                             <a href="{{route('users_list.show', $user)}}"><button class="btn btn-primary"><i class="fa-solid fa-angle-left"></i> 戻る</button></a>
                         </span>
 
-
+                    </div>
                     </div>
                 </div>
             </div>

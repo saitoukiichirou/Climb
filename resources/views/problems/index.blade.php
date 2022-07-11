@@ -1,8 +1,9 @@
 @extends("layouts.app")
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            {{--            <div class="md-8">--}}
+                        <div class="col-md-10">
             <div class="card px-0">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     {{ __('課題一覧') }}
@@ -94,7 +95,7 @@
                     </table>
 {{--                    <div class="mb-2 flex-">--}}
 {{--                        {{ $users->links('vendor.pagination.bootstrap-4') }}--}}
-{{--                    </div>--}}
+                    </div>
                 </div>
             </div>
         </div>

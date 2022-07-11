@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
+            <div class="col-md-10">
             <div class="card px-0">
                 <div class="card-header">{{ __('利用記録入力') }}</div>
 
@@ -113,7 +114,7 @@
 
                 </div>
             </div>
-
+            </div>
         </div>
     </div>
     </div>

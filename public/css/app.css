@@ -11304,6 +11304,9 @@ textarea.form-control-lg {
     border-bottom: 5px solid rgb(157, 157, 153);
     border-left: 1px solid rgba(0, 0, 0, 0.12);
 }
+.tab-menu .swiper-slide h1 {
+    text-align: center;
+}
     /*1つ目のメニュー"A"の区切り線調整*/
 .tab-menu .swiper-slide:first-child {
     border-left: 0;
@@ -11326,6 +11329,10 @@ textarea.form-control-lg {
     padding: 0;
     background: #565652;
     box-shadow: 0 2px 0 #3d3d3a;
+}
+
+.nav-item-right{
+    text-align: right !important;
 }
 
 /*マウスオン時の動作, いらないかも*/

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">{{ __('スコア表') }}</div>
 
@@ -30,7 +30,7 @@
                                 <div class="swiper-wrapper">
                                     {{--ここから Tab A のコンテンツ--}}
                                     <div class="swiper-slide">
-                                        <h1>A面</h1>
+                                        <h1 class="text-center">A面 88°</h1>
                                         <table class="table table-hover flex justify-content-center">
                                             <thead>
                                             <tr>
@@ -100,7 +100,7 @@
                                     </div>
                                     {{--ここから Tab B のコンテンツ--}}
                                     <div class="swiper-slide">
-                                        <h1>B面</h1>
+                                        <h1 class="text-center">B面  105°</h1>
                                         <table class="table table-hover flex justify-content-center">
                                             <thead>
                                             <tr>
@@ -169,7 +169,7 @@
                                     </div>
                                     {{--ここから Tab C のコンテンツ--}}
                                     <div class="swiper-slide">
-                                        <h1>C面</h1>
+                                        <h1 class="text-center">C面 120°</h1>
                                         <table class="table table-hover flex justify-content-center">
                                             <thead>
                                             <tr>
@@ -238,7 +238,7 @@
                                     </div>
                                     {{--ここから Tab D のコンテンツ--}}
                                     <div class="swiper-slide">
-                                        <h1>D面</h1>
+                                        <h1 class="text-center">D面 roof</h1>
                                         <table class="table table-hover flex justify-content-center">
                                             <thead>
                                                 <tr>

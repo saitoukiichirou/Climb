@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            {{--            <div class="col-md-8">--}}
+                        <div class="col-md-10">
             <div class="md-8">
                 <div class="card">
                     <div class="card-header">{{ __('会員情報表示') }}</div>
@@ -205,6 +205,7 @@
                         {{--                        {{ __('You are logged in!') }}--}}
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </div>
