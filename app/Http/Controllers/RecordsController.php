@@ -88,7 +88,7 @@ class RecordsController extends Controller
             }
             $record->item_rents = $item_rents;
         }
-
+dd($records);
         return view('records.index', compact('user',  'records'));
     }
 

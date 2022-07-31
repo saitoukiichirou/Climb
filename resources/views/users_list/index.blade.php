@@ -33,7 +33,8 @@
                                     <th>性別</th>
                                     <th>年齢</th>
                                     <th>種別</th>
-                                    <th>詳細確認</th>
+                                    <th class="text-center">詳細確認</th>
+                                    <th class="text-center">課題状況</th>
                                 </tr>
                             </thead>
                             <tboby>
@@ -64,9 +65,21 @@
                                                 不明
                                             @endif
                                         </td>
-                                        <td>
-    {{--                                        1ユーザごとの詳細確認画面へ--}}
-                                            <a href="{{route('users_list.show', $user)}}"><i class="fa-solid fa-user-pen pl-2"></i></a>
+                                        {{--    ユーザごとの詳細確認画面へ--}}
+                                        <td class="text-center">
+                                            <a href="{{route('users_list.show', $user)}}">
+                                                <button type="button" class="btn btn-outline-primary">
+                                                    <i class="fa-solid fa-user-pen"></i>
+                                                </button>
+                                            </a>
+                                        </td>
+                                        {{--    ユーザーごとの課題の達成状況確認画面へ--}}
+                                        <td class="text-center">
+                                            <a href="{{route('scores.show', $user)}}" class="text-center">
+                                                <button type="button" class="btn btn-outline-primary">
+                                                    <i class="fa-solid fa-file-lines"></i>
+                                                </button>
+                                            </a>
                                         </td>
                                 </tr>
                             @endforeach

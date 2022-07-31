@@ -27,12 +27,12 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //コントローラー・メソッドがわかりづらいので元の記法に直すこと！
-//Route::get('/score_boards', 'ClimbController@scoreBoards')->name('score_boards');
-Route::resource('/scores', 'ScoresController');
+Route::get('/scoreboard', 'ScoresController@index')->name('scores.index');
 Route::post('/success', 'ScoresController@success')->name('scores.success');
 
 //管理者権限のみアクセス可能
 Route::middleware(['can:admin'])->group(function(){
+    Route::resource('/scores', 'ScoresController');
     Route::resource('/users_list', 'UsersListController');
     Route::resource('/records', 'RecordsController');
     Route::resource('/problems', 'ProblemsController');

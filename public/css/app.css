@@ -11333,6 +11333,7 @@ textarea.form-control-lg {
 
 .nav-item-right{
     text-align: right !important;
+    border-left: 1px solid rgba(86, 86, 82, 0.3);
 }
 
 /*マウスオン時の動作, いらないかも*/

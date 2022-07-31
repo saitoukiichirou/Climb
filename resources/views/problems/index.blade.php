@@ -27,6 +27,7 @@
                             <th>テープ形</th>
                             <th>セッター名</th>
                             <th>追加日</th>
+                            <th>完登者数</th>
                             <th>編集</th>
                             <th>削除</th>
                         </tr>
@@ -66,12 +67,17 @@
                                     <td>{{$problem->tape_form}}</td>
                                     <td>{{$problem->setter}}</td>
                                     <td>{{$problem->created_at->format('Y-m-d')}}</td>
-{{--                                    <td>--}}
-{{--                                        課題ごとの詳細画面へ--}}
-{{--                                        <a href="{{route('problems.show', $problem)}}"><i class="fa-solid fa-file-pen pl-2"></i></a>--}}
-{{--                                    </td>--}}
+                                    <td>
+                                        {{--完登者数のカウント--}}
+                                        @if($problem->scores->count())
+                                            {{ $problem->scores->count() }}人
+                                        @else
+                                            {{ __('無し') }}
+                                        @endif
+                                    </td>
+
+                                    {{--                                        課題ごとの編集画面へ--}}
                                     <td class="p-1">
-                                        {{--                                        課題ごとの編集画面へ--}}
                                         <a href="{{route('problems.edit', $problem)}}">
                                         <button type="button" class="btn btn-outline-primary pr-2">
                                             <i class="fa-solid fa-file-pen"></i>
@@ -89,12 +95,11 @@
                                             </button>
                                         </form>
                                     </td>
+
                                 </tr>
                             @endforeach
                         </tboby>
                     </table>
-{{--                    <div class="mb-2 flex-">--}}
-{{--                        {{ $users->links('vendor.pagination.bootstrap-4') }}--}}
                     </div>
                 </div>
             </div>

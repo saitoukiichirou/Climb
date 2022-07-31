@@ -219,7 +219,7 @@
                                                                     <span class="likes">
                                                                         <button class="btn-circle like-toggle" data-review-id="{{ $problem->id }}">
                                                                             <i class="fa-solid fa-face-smile"></i>
-                                                                        </button><span class="like-counter">{{$problem->likes_count}}</span>
+                                                                        </button><span class="like-counter">{{$problem->likes_count }}</span>
                                                                     </span>
                                                                 @else
                                                                     <span class="likes">

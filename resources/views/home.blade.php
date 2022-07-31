@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
@@ -17,9 +17,9 @@
                     {{ __('利用する機能を選択してください') }}
 
                         <div class="list-group">
-                            <a href="{{ route('home') }}" class="list-group-item {{url()->current()==route('home')? 'active' : ''}}">
-                                <i class="fas fa-home px-2"></i><span>ホーム</span>
-                            </a>
+{{--                            <a href="{{ route('home') }}" class="list-group-item {{url()->current()==route('home')? 'active' : ''}}">--}}
+{{--                                <i class="fas fa-home px-2"></i><span>ホーム</span>--}}
+{{--                            </a>--}}
                             @can('admin')
                                 <a href="{{ route('users_list.index') }}" class="list-group-item {{url()->current()==route('users_list.index')? 'active' : ''}}">
                                     <i class="fa-solid fa-address-book pr-2"></i><span>会員名簿</span>
