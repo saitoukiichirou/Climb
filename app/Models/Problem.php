@@ -23,34 +23,16 @@ class Problem extends Model
     }
 
     //グレードごとの課題数と$userの完登数をintで返す
-    public function isHowMany($grade): int
-    {
-        return Problem::where('grade', $grade)->count();
-
-//        return Score::where('user_id', $user->id)
-//            ->first()->get();
-
-//            ->where('problem.grade', '00')
-//            ->count();//gradeごとの完登数を数字で返したい
-    }
-    public function problemPerSuccess($grade, $user)
-    {
-        //$userが落とした課題とその課題の情報を取り出す
-//        $score = Score::where('user_id', $user)->with('problem')->get();
-//        $score->
-
-        $pps = array(
-        'problem' => Problem::where('grade', $grade)->count(),
-        );
-//        print_r($score);
-        return $pps;
-    }
+//    public function isHowMany($grade): int
+//    {
+//        return Problem::where('grade', $grade)->count();
+//    }
 
     //課題をgrade毎かつdimension毎で多次元配列に格納
-    public function getDimension($grade, $grade_name)
+    public function getDimension($grade)
     {
         $problem_name = array(
-            $grade_name => array(
+            $grade => array(
                 'A' => Problem::where([['grade', $grade], ['dimension', 'A']])->get(),
                 'B' => Problem::where([['grade', $grade], ['dimension', 'B']])->get(),
                 'C' => Problem::where([['grade', $grade], ['dimension', 'C']])->get(),
@@ -64,17 +46,17 @@ class Problem extends Model
     {
         $marge_grades = array();
         $marge_grades += array_merge($marge_grades,
-            (Problem::getDimension('00', '3D')),
-            (Problem::getDimension('01', '2D')),
-            (Problem::getDimension('02', '1D')),
-            (Problem::getDimension('03', '1Q')),
-            (Problem::getDimension('04', '2Q')),
-            (Problem::getDimension('05', '3Q')),
-            (Problem::getDimension('06', '4Q')),
-            (Problem::getDimension('07', '5Q')),
-            (Problem::getDimension('08', '6Q')),
-            (Problem::getDimension('09', '7Q')),
-            (Problem::getDimension('10', '8Q')),
+            (Problem::getDimension('00')),
+            (Problem::getDimension('01')),
+            (Problem::getDimension('02')),
+            (Problem::getDimension('03')),
+            (Problem::getDimension('04')),
+            (Problem::getDimension('05')),
+            (Problem::getDimension('06')),
+            (Problem::getDimension('07')),
+            (Problem::getDimension('08')),
+            (Problem::getDimension('09')),
+            (Problem::getDimension('10')),
         );
         return $marge_grades;
     }

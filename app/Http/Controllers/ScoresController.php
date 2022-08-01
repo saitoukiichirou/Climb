@@ -56,24 +56,6 @@ class ScoresController extends Controller
     {
         $user = User::find($id);
         $problems = Problem::margeProblems();
-        $success = Score::countSuccess($id);
-//        $pps = Problem::problemPerSuccess('03', $id);
-
-
-        //$userが落とした課題とその課題の情報を取り出す
-        $grade = "04";
-        $score = DB::select('SELECT *
-            FROM scores AS s
-            INNER JOIN problems AS p ON s.problem_id = p.id AND s.user_id = 2 AND p.grade = 04');
-
-        $scores = Score::Join('problems','scores.problem_id', '=', 'problems.id')
-            ->where([['scores.user_id', $id], ['problems.grade', $grade]])
-            ->get();
-
-//            ->leftJoin();
-//        $score
-
-//        dd($scores);
 
         return view('scores.show', compact('problems', 'user'));
     }
