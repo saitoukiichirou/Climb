@@ -84,11 +84,10 @@ class RecordsController extends Controller
                     //配列にプッシュ（追加する）ことでforeachを繰り返しながら追加していける
                     array_push($item_rents, $item_rent);
                 }
-
             }
             $record->item_rents = $item_rents;
         }
-dd($records);
+
         return view('records.index', compact('user',  'records'));
     }
 

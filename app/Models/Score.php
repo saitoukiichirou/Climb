@@ -27,24 +27,13 @@ class Score extends Model
         return $this->belongsTo('App\Models\User');
     }
 
-//    public function countSuccess($user)
-//    {
-//        $numerator = Score::where('user_id', $user)->with('problem')->get();
-//
-//        $numerator = Score::where('user_id', $user)->with(['problem' => function ($query){
-//            $query->where('grade', '03');
-//        }])->get();
-//
-////        return $denominator;
-//    }
-
     //完登した課題の個数
     public function achievementProblem($id, $grade): string
     {
-        //$gradeの総数を取得して分母に
+        //$gradeの総数をカウントして分母に
         $denominator = Problem::where('grade', $grade)->count();
 
-        //$gradeの$idユーザー完登数を分子に
+        //$gradeの$idユーザー完登数をカウントして分子に
         $numerator = Score::Join('problems','scores.problem_id', '=', 'problems.id')
             ->where([
                 ['scores.user_id', $id],

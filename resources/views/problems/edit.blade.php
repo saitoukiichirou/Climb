@@ -43,11 +43,6 @@
 
                                 <input type="radio" class="btn-check" name="dimension" id="dimension-d" value="D" autocomplete="off" @if("D" == $problem->dimension)checked="checked" @endif>
                                 <label class="btn btn-outline-dark" for="dimension-d">D面</label>
-
-{{--                                <input type="radio" name="dimension" class="" id="" value="A" @if("A" == $problem->dimension)checked="checked" @endif>A面--}}
-{{--                                <input type="radio" name="dimension" class="" id="" value="B" @if("B" == $problem->dimension)checked="checked" @endif>B面--}}
-{{--                                <input type="radio" name="dimension" class="" id="" value="C" @if("C" == $problem->dimension)checked="checked" @endif>C面--}}
-{{--                                <input type="radio" name="dimension" class="" id="" value="D" @if("D" == $problem->dimension)checked="checked" @endif>D面--}}
                             </div>
 
                             <div class="form-group">
@@ -83,14 +78,24 @@
                                 <label for="body">セッター</label>
                                 <input type="text" name="setter" class="form-control" value="{{old('setter', $problem->setter)}}" placeholder="名前を入力">
                             </div>
-                            <button type="submit" class="btn btn-success">更新する</button>
+
+
+                            <div class="input-group mt-2">
+                                {{--                        戻るボタン--}}
+                                <div class="mt-2">
+                                    <a class="text-decoration-none" href="{{route('problems.index')}}">
+                                        <button type="button" class="btn btn-primary">
+                                            <i class="fa-solid fa-angle-left">戻る</i></button>
+                                    </a>
+                                </div>
+                                {{--                      submitボタン--}}
+                                <div class="m-2">
+                                    <button type="submit" class="btn btn-success">更新する</button>
+                                </div>
+                            </div>
                         </form>
                         {{--            投稿フォーム 終わり--}}
 
-                        {{--                        戻るボタン--}}
-                        <span class="ml-auto">
-                                <a href="{{route('problems.index')}}"><button class="btn btn-primary mt-3"><i class="fa-solid fa-angle-left"></i> 戻る</button></a>
-                            </span>
                     </div>
                 </div>
             </div>

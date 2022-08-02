@@ -6,18 +6,19 @@
             <div class="col-md-10">
                 <div class="card px-0">
                     <div class="card-header">{{ __('会員名簿') }}</div>
-                    {{--                        検索機能　未実装--}}
-{{--                    <div class="card-header">--}}
-{{--                        <h6>{{ __('検索') }}</h6>--}}
-{{--                        <div>--}}
-{{--                            <form method="POST" action="{{ route('users_list.index')}}">--}}
-{{--                                @csrf--}}
-{{--                                <input type="text" name="name" class="form-control">--}}
-{{--                                <button type="submit" class="btn btn-primary">{{ __('検索') }}</button>--}}
-{{--                            </form>--}}
 
-{{--                        </div>--}}
-{{--                    </div>--}}
+                    {{--                        検索機能　未実装--}}
+                    {{--                    <div class="card-header">--}}
+                    {{--                        <h6>{{ __('検索') }}</h6>--}}
+                    {{--                        <div>--}}
+                    {{--                            <form method="POST" action="{{ route('users_list.index')}}">--}}
+                    {{--                                @csrf--}}
+                    {{--                                <input type="text" name="name" class="form-control">--}}
+                    {{--                                <button type="submit" class="btn btn-primary">{{ __('検索') }}</button>--}}
+                    {{--                            </form>--}}
+
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
 
                     <div class="card-body">
                         @if (session('status'))
@@ -27,18 +28,18 @@
                         @endif
                         <table class="table table-hover flex justify-content-center">
                             <thead>
-                                <tr>
-                                    <th>会員番号</th>
-                                    <th>名前</th>
-                                    <th>性別</th>
-                                    <th>年齢</th>
-                                    <th>種別</th>
-                                    <th class="text-center">詳細確認</th>
-                                    <th class="text-center">課題状況</th>
-                                </tr>
+                            <tr>
+                                <th>会員番号</th>
+                                <th>名前</th>
+                                <th>性別</th>
+                                <th>年齢</th>
+                                <th>種別</th>
+                                <th class="text-center">詳細確認</th>
+                                <th class="text-center">課題状況</th>
+                            </tr>
                             </thead>
                             <tboby>
-                            @foreach($users as $user)
+                                @foreach($users as $user)
                                     <tr>
                                         <td>{{$user->id}}</td>
                                         <td>{{$user->name}}</td>
@@ -81,13 +82,13 @@
                                                 </button>
                                             </a>
                                         </td>
-                                </tr>
-                            @endforeach
+                                    </tr>
+                                @endforeach
                             </tboby>
                         </table>
-                            <div class="mb-2 flex-">
-                                {{ $users->links('vendor.pagination.bootstrap-4') }}
-                            </div>
+                        <div class="mb-2 flex-">
+                            {{ $users->links('vendor.pagination.bootstrap-4') }}
+                        </div>
                     </div>
                 </div>
             </div>

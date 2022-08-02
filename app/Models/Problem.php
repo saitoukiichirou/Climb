@@ -22,12 +22,6 @@ class Problem extends Model
             ])->first() !== null;
     }
 
-    //グレードごとの課題数と$userの完登数をintで返す
-//    public function isHowMany($grade): int
-//    {
-//        return Problem::where('grade', $grade)->count();
-//    }
-
     //課題をgrade毎かつdimension毎で多次元配列に格納
     public function getDimension($grade)
     {
