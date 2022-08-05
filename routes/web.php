@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ClimbController;
-use App\Http\Controllers\UsersListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,14 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/register', [ClimbController::class, 'register']);
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //コントローラー・メソッドがわかりづらいので元の記法に直すこと！
-Route::get('/scoreboard', 'ScoresController@index')->name('scores.index');
+Route::get('/scores', 'ScoresController@index')->name('scores.index');
 Route::post('/success', 'ScoresController@success')->name('scores.success');
 
 //管理者権限のみアクセス可能
@@ -36,6 +33,5 @@ Route::middleware(['can:admin'])->group(function(){
     Route::resource('/users_list', 'UsersListController');
     Route::resource('/records', 'RecordsController');
     Route::resource('/problems', 'ProblemsController');
-//    Route::get('/daily_records', 'ClimbController@dailyRecords')->name('daily_records');
 });
 

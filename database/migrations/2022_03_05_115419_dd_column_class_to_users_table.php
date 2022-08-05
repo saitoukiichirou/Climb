@@ -13,9 +13,10 @@ class DdColumnClassToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->tinyInteger('class_name')->after('birthday');
-        });
+//        Schema::table('users', function (Blueprint $table) {
+////            $table->tinyInteger('class_name')->after('birthday');
+//            $table->string('member_number', 10)->nullable()->after('id');
+//        });
     }
 
     /**
@@ -25,8 +26,9 @@ class DdColumnClassToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('class_name');
-        });
+//        Schema::table('users', function (Blueprint $table) {
+////            $table->dropColumn('class_name');
+//            $table->dropColumn('member_number');
+//        });
     }
 }

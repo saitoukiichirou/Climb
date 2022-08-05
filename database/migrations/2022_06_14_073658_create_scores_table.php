@@ -30,5 +30,8 @@ class CreateScoresTable extends Migration
     public function down()
     {
         Schema::dropIfExists('scores');
+//        Schema::table('scores', function (Blueprint $table) {
+//            $table->dropColumn('status');
+//        });
     }
 }
