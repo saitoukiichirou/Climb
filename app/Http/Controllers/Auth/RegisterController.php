@@ -54,12 +54,12 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:100'],
             'kana' => ['required', 'string', 'max:100'],
             'gender' => ['required', 'boolean', 'max:1'],
+            'class' => ['required', 'string', 'max:255'],
             'birthday' => ['required', 'date', 'max:10'],
-//            'class' => ['required', 'string', 'max:255'],
-            'address' => ['required', 'string', 'max:100'],
-            'phone' => ['required', 'string', 'max:20'],
-            'email' => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+//            'address' => ['required', 'string', 'max:100'],
+//            'phone' => ['required', 'string', 'max:20'],
+//            'email' => ['required', 'string', 'email', 'max:255'],
+//            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -71,17 +71,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        //初期パスワードは生年月日にする,'YYYYmmdd'の数字8桁で
+        $birth = preg_replace('/[^0-9]/', '', $data['birthday']);
+
         return User::create([
             'member_number' => $data['member_number'],
             'name' => $data['name'],
             'kana' => $data['kana'],
             'gender' => $data['gender'],
             'birthday' => $data['birthday'],
-//            'class' => $data['class'],
-            'address' => $data['address'],
-            'phone' => $data['phone'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['birthday']),
+            'class' => $data['class'],
+//            'address' => $data['address'],
+//            'phone' => $data['phone'],
+//            'email' => $data['email'],
+            'password' => Hash::make($birth),
         ]);
     }
 }
