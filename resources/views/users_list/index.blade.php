@@ -53,15 +53,13 @@
                                         <td>{{$user->age}}</td>
                                         <td>
                                             @if(0 === $user->class)
-                                                キッズ
-                                            @elseif(1 === $user->class)
-                                                小学生
-                                            @elseif(2 === $user->class)
-                                                中学生
-                                            @elseif(3 === $user->class)
-                                                高校生
-                                            @elseif(4 === $user->class)
                                                 一般
+                                            @elseif(1 === $user->class)
+                                                専門・大学
+                                            @elseif(2 === $user->class)
+                                                高校生以下
+                                            @elseif(3 === $user->class)
+                                                キッズ
                                             @else
                                                 不明
                                             @endif

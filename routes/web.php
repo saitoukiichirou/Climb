@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/register');
 });
 
 
@@ -29,7 +29,8 @@ Route::post('/success', 'ScoresController@success')->name('scores.success');
 
 //管理者権限のみアクセス可能
 Route::middleware(['can:admin'])->group(function(){
-    Route::resource('/scores', 'ScoresController');
+    Route::get('/scores/{score}', 'ScoresController@show')->name('scores.show');
+//    Route::resource('/scores', 'ScoresController');
     Route::resource('/users_list', 'UsersListController');
     Route::resource('/records', 'RecordsController');
     Route::resource('/problems', 'ProblemsController');
