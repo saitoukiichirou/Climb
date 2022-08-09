@@ -41,7 +41,7 @@
                             <tboby>
                                 @foreach($users as $user)
                                     <tr>
-                                        <td>{{$user->id}}</td>
+                                        <td>{{$user->member_number}}</td>
                                         <td>{{$user->name}}</td>
                                         <td>
                                             @if(0 === $user->gender)

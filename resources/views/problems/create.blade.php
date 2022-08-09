@@ -77,18 +77,23 @@
                                 <input type="text" name="setter" class="form-control" value="{{old('setter')}}" placeholder="名前を入力">
                             </div>
 
-                            <button type="submit" class="btn btn-success">登録する</button>
+                            {{--ボタン群--}}
+                            <div class="input-group mt-2">
+                                {{--                        戻るボタン--}}
+                                <div class="mt-2">
+                                    <a class="text-decoration-none" href="{{route('problems.index')}}">
+                                        <button type="button" class="btn btn-primary">
+                                            <i class="fa-solid fa-angle-left">戻る</i></button>
+                                    </a>
+                                </div>
+                                {{--                      submitボタン--}}
+                                <div class="m-2">
+                                    <button type="submit" class="btn btn-success">登録する</button>
+                                </div>
+                            </div>
                         </form>
                         {{--            投稿フォーム 終わり--}}
-
-                        {{--                        戻るボタン--}}
-                        <span class="ml-auto">
-                                <a href="{{route('problems.index')}}"><button class="btn btn-primary mt-3"><i class="fa-solid fa-angle-left"></i> 戻る</button></a>
-                            </span>
                     </div>
-
-
-
                 </div>
             </div>
         </div>

@@ -39,7 +39,7 @@ class RecordsController extends Controller
             ]);
 
             //検索したuser_idがuserテーブルに存在するかチェック, 無かった場合はエラーメッセージを返す
-            if (is_null(User::find($user_id))){
+            if (is_null(User::where('member_number', $user_id))){
                 return redirect()->route('records.index')->with(['status' => 'この会員番号は存在しません']);
             }
 

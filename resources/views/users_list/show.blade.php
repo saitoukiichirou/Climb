@@ -20,7 +20,7 @@
                             <table class="flex justify-content-center">
                                 <tr>
                                     <th class="w-10">会員番号</th>
-                                    <td>{{$user->id}}</td>
+                                    <td>{{$user->member_number}}</td>
                                 </tr>
                                 <tr>
                                     <th>性別</th>
@@ -32,6 +32,19 @@
                                         @endif
                                     </td>
                                 </tr>
+                                <tr>
+                                    <th>カテゴリ</th>
+                                    <td>
+                                        @if(0 === $user->class)
+                                            一般
+                                        @elseif(1 === $user->class)
+                                            専門・大学生
+                                        @elseif(2 === $user->class)
+                                            高校生以下
+                                        @elseif(3=== $user->class)
+                                            キッズ
+                                        @endif
+                                    </td>
                                 <tr>
                                     <th>生年月日</th>
                                     <td>{{$user->birthday}}</td>

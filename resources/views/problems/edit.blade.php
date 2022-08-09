@@ -79,7 +79,7 @@
                                 <input type="text" name="setter" class="form-control" value="{{old('setter', $problem->setter)}}" placeholder="名前を入力">
                             </div>
 
-
+                            {{--ボタン群--}}
                             <div class="input-group mt-2">
                                 {{--                        戻るボタン--}}
                                 <div class="mt-2">
@@ -95,7 +95,6 @@
                             </div>
                         </form>
                         {{--            投稿フォーム 終わり--}}
-
                     </div>
                 </div>
             </div>

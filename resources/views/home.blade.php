@@ -17,9 +17,6 @@
                     {{ __('利用する機能を選択してください') }}
 
                         <div class="list-group">
-{{--                            <a href="{{ route('home') }}" class="list-group-item {{url()->current()==route('home')? 'active' : ''}}">--}}
-{{--                                <i class="fas fa-home px-2"></i><span>ホーム</span>--}}
-{{--                            </a>--}}
                             @can('admin')
                                 <a href="{{ route('users_list.index') }}" class="list-group-item {{url()->current()==route('users_list.index')? 'active' : ''}}">
                                     <i class="fa-solid fa-address-book px-2"></i><span>会員名簿</span>

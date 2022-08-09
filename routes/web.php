@@ -15,23 +15,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('/register');
+    return redirect('/login');
 });
 
 
 Auth::routes();
 
+//コントローラー・メソッドがわかりづらいので元の記法に直すこと！
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//コントローラー・メソッドがわかりづらいので元の記法に直すこと！
 Route::get('/scores', 'ScoresController@index')->name('scores.index');
 Route::post('/success', 'ScoresController@success')->name('scores.success');
 
 //管理者権限のみアクセス可能
 Route::middleware(['can:admin'])->group(function(){
+    Route::resource('/users_list', 'UsersListController');
     Route::get('/scores/{score}', 'ScoresController@show')->name('scores.show');
 //    Route::resource('/scores', 'ScoresController');
-    Route::resource('/users_list', 'UsersListController');
     Route::resource('/records', 'RecordsController');
     Route::resource('/problems', 'ProblemsController');
 });

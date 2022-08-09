@@ -15,22 +15,8 @@ class UsersListController extends Controller
      */
     public function index()
     {
-//        dd($request);
-//        $key = $request->name;
-//        if (is_null($key)){
-//            $key = null;
-//        }
-//dd($key);
-//        $users = User::where('name', 'like', "%". $request->name. "%")->paginate(10);
+        $users = User::getUser();
 
-        $users = User::paginate(10);
-        foreach ($users as $user){
-            $now = date('Ymd');
-            $birthday = $user->birthday;
-            $birthday = str_replace('-', '', $birthday);
-            $age = floor(($now - $birthday) / 10000);
-            $user['age'] = $age;
-        }
         return view('users_list.index', compact('users'));
 
     }
@@ -116,10 +102,17 @@ class UsersListController extends Controller
             'name' => ['required', 'string', 'max:100'],
             'kana' => ['required', 'string', 'max:100'],
             'gender' => ['required', 'boolean'],
+            'class' => ['required', 'int', 'max:10'],
             'birthday' => ['required', 'date', 'max:10'],
-            'address' => ['required', 'string', 'max:100'],
-            'phone' => ['required', 'string', 'max:20'],
-            'email' => ['required', 'string', 'email', 'max:255'],
+
+//          テスト運用ではemail,address,phoneはnullを許容する
+            'email' => ['nullable', 'string', 'email', 'max:255'],
+            'address' => ['nullable', 'string', 'max:100'],
+            'phone' => ['nullable', 'string', 'max:20'],
+
+//            'email' => ['required', 'string', 'email', 'max:255'],
+//            'address' => ['required', 'string', 'max:100'],
+//            'phone' => ['required', 'string', 'max:20'],
         ]);
 
         User::where('id', $id)->update($inputs);

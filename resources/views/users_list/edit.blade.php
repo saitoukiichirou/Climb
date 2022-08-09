@@ -49,13 +49,50 @@
                                     </div>
                                 </div>
                                 {{--性別--}}
+
                                 <div class="row mb-3">
-                                    <label for="gender" class="col-md-4 col-form-label text-md-end">{{ __('性別') }}</label>
+                                    <label for="gender" class="col-md-4 col-form-label text-md-end">{{('性別')}}</label>
+
 
                                     <div class="col-md-6">
-                                        <input id="gender" type="radio" class="mt-2 @error('gender') is-invalid @enderror" name="gender" value="0" @if(0 === $user->gender)checked="checked" @endif>男性
-                                        <input id="gender" type="radio" class="mt-2 @error('gender') is-invalid @enderror" name="gender" value="1" @if(1 === $user->gender)checked="checked" @endif>女性
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+
+                                            <input id="gender-m" type="radio" class="btn-check @error('gender') is-invalid @enderror" name="gender" value="0" @if(0 === $user->gender)checked="checked" @endif>
+                                            <label class="btn btn-outline-secondary" for="gender-m">男性</label>
+
+                                            <input id="gender-w" type="radio" class="btn-check @error('gender') is-invalid @enderror" name="gender" value="1" @if(1 === $user->gender)checked="checked" @endif>
+                                            <label class="btn btn-outline-secondary" for="gender-w">女性</label>
+                                        </div>
+
                                         @error('gender')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                {{--カテゴリ--}}
+                                <div class="row mb-3">
+                                    <label for="class" class="col-md-4 col-form-label text-md-end">{{('カテゴリ')}}</label>
+
+                                    <div class="col-md-6">
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+
+                                            <input id="class-0" type="radio" class="btn-check @error('class') is-invalid @enderror" name="class" value="0" @if(0 === $user->class)checked="checked" @endif>
+                                            <label class="btn btn-outline-secondary" for="class-0">一般</label>
+
+                                            <input id="class-1" type="radio" class="btn-check @error('class') is-invalid @enderror" name="class" value="1" @if(1 === $user->class)checked="checked" @endif>
+                                            <label class="btn btn-outline-secondary" for="class-1">専門・大学</label>
+
+                                            <input id="class-2" type="radio" class="btn-check @error('class') is-invalid @enderror" name="class" value="2" @if(2 === $user->class)checked="checked" @endif>
+                                            <label class="btn btn-outline-secondary" for="class-2">高校生以下</label>
+
+                                            <input id="class-3" type="radio" class="btn-check @error('class') is-invalid @enderror" name="class" value="3" @if(3 === $user->class)checked="checked" @endif>
+                                            <label class="btn btn-outline-secondary" for="class-3">キッズ</label>
+                                        </div>
+
+                                        @error('class')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -67,7 +104,7 @@
                                     <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email',$user->email) }}" required autocomplete="email">
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email',$user->email) }}" autocomplete="email">
 
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -95,7 +132,7 @@
                                     <label for="address" class="col-md-4 col-form-label text-md-end">{{ __('Address') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address', $user->address) }}" required autocomplete="address">
+                                        <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address', $user->address) }}" autocomplete="address">
 
                                         @error('address')
                                         <span class="invalid-feedback" role="alert">
@@ -109,7 +146,7 @@
                                     <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('電話番号') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone', $user->phone) }}" required autocomplete="phone">
+                                        <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone', $user->phone) }}" autocomplete="phone">
 
                                         @error('phone')
                                         <span class="invalid-feedback" role="alert">

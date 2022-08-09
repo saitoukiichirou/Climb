@@ -5,7 +5,6 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    {{--                <div class="card-header">会員登録</div>--}}
                     <div class="card-header">{{ __('会員登録') }}</div>
 
                     <div class="card-body">
@@ -17,7 +16,7 @@
                                 <label for="member_number" class="col-md-4 col-form-label text-md-end">{{ __('会員番号') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="member_number" type="text" class="form-control @error('member_number') is-invalid @enderror" name="member_number" value="{{ old('member_number') }}" required autocomplete="member_number">
+                                    <input id="member_number" type="text" class="form-control @error('member_number') is-invalid @enderror" name="member_number" value="{{ old('member_number') }}" required autocomplete="member_number" autofocus>
 
                                     @error('member_number')
                                     <span class="invalid-feedback" role="alert">
@@ -31,7 +30,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name">
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -45,7 +44,7 @@
                                 <label for="kana" class="col-md-4 col-form-label text-md-end">{{ __('かな') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control @error('かな') is-invalid @enderror" name="kana" value="{{ old('kana') }}" required autocomplete="kana" autofocus>
+                                    <input id="kana" type="text" class="form-control @error('かな') is-invalid @enderror" name="kana" value="{{ old('kana') }}" required autocomplete="kana">
 
                                     @error('kana')
                                     <span class="invalid-feedback" role="alert">

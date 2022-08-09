@@ -65,4 +65,19 @@ class User extends Authenticatable
         //
     }
 
+    public function getUser()
+    {
+        $users = User::orderBy('member_number')->paginate(10);
+
+        foreach ($users as $user){
+            $now = date('Ymd');
+            $birthday = $user->birthday;
+            $birthday = str_replace('-', '', $birthday);
+            $age = floor(($now - $birthday) / 10000);
+            $user['age'] = $age;
+        }
+
+        return $users;
+    }
+
 }
