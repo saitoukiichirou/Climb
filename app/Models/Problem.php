@@ -25,20 +25,19 @@ class Problem extends Model
     //課題をgrade毎かつdimension毎で多次元配列に格納
     public function getDimension($grade)
     {
-        $problem_name = array(
-            $grade => array(
+        return [
+            [
                 'A' => Problem::where([['grade', $grade], ['dimension', 'A']])->get(),
                 'B' => Problem::where([['grade', $grade], ['dimension', 'B']])->get(),
                 'C' => Problem::where([['grade', $grade], ['dimension', 'C']])->get(),
-                'D' => Problem::where([['grade', $grade], ['dimension', 'D']])->get()
-            ),
-        );
-        return $problem_name;
+                'D' => Problem::where([['grade', $grade], ['dimension', 'D']])->get(),
+            ],
+        ];
     }
 
     public function margeProblems()
     {
-        $marge_grades = array();
+        $marge_grades = [];
         $marge_grades += array_merge($marge_grades,
             (Problem::getDimension('00')),
             (Problem::getDimension('01')),
@@ -55,10 +54,10 @@ class Problem extends Model
         return $marge_grades;
     }
 
-    public function getProblem($grade, $dimension)
-    {
-        return Problem::where([['grade', $grade], ['dimension', $dimension]])->get();
-    }
+//    public function getProblem($grade, $dimension)
+//    {
+//        return Problem::where([['grade', $grade], ['dimension', $dimension]])->get();
+//    }
 
     protected $fillable = [
         'dimension',

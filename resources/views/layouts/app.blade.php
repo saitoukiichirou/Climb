@@ -116,9 +116,11 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                @can('admin')
                                 <a class="dropdown-item" href="{{ route('users_list.show', Auth::id()) }}">
                                     {{ __('登録情報編集') }}
                                 </a>
+                                @endcan
 
 {{--                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
 {{--                                    @csrf--}}

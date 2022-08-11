@@ -20,7 +20,6 @@ class Score extends Model
         //順番を変えて取得する
         return $this->belongsTo(Problem::class, 'problem_id')
             ->orderBy('dimension')->orderBy('grade');
-
     }
 
     public function user(){

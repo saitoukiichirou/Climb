@@ -96,17 +96,20 @@ class ScoresController extends Controller
 
     public function success(Request $request)
     {
-        $user_id = Auth::user()->id; //1.ログインユーザーのid取得
+        $user_id = Auth::user()->id;
         $problem_id = $request->problem_id; //2.投稿idの取得
-        $already_liked = Score::where('user_id', $user_id)->where('problem_id', $problem_id)->first(); //3.
+        $already_liked = Score::where('user_id', $user_id)->where('problem_id', $problem_id)->first();
 
         if (!$already_liked) { //もしこのユーザーがこのproblemをまだ完登してなかったら
-            $score = new Score(); //4.Scoreクラスのインスタンスを作成
-            $score->user_id = $user_id; //Scoreインスタンスにproblem_id,user_idをセット
+            //Scoreクラスのインスタンスを作成
+            $score = new Score();
+            //Scoreインスタンスにproblem_id,user_idをセット
+            $score->user_id = $user_id;
             $score->problem_id = $problem_id;
             $score->status = 0;
             $score->save();
-        } else { //もしこのユーザーがこのproblemを既に完登してたらdelete
+        } else {
+            //もしこのユーザーがこの$problemを既に完登してたらdelete
             Score::where('problem_id', $problem_id)->where('user_id', $user_id)->delete();
         }
     }
