@@ -44,12 +44,12 @@ class RecordsController extends Controller
             }
 
             //検索したuser_idが既に本日の利用が無いかチェックする, 有った場合はエラーメッセージを返す
-            if (!is_null(Record::where([['user_id', $user_id], ['date', 'LIKE', $date. "%"]])->first())){
+            if (!is_null(Record::where([['member_number', $user_id], ['date', 'LIKE', $date. "%"]])->first())){
                 return redirect()->route('records.index')->with(['status' => '既に本日の施設利用履歴があります']);
             }
 
             //施設利用の登録に必要な選択肢を検索,格納する
-            $user = User::find($request->id);
+            $user = User::where('member_number', $user_id)->first();
             $user->prices = Price::where('class', $user->class)->get();
             $user->rents = Price::where('class', 5)->get();
         }
