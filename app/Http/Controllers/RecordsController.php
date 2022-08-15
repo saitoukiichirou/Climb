@@ -39,17 +39,22 @@ class RecordsController extends Controller
             ]);
 
             //検索したuser_idがuserテーブルに存在するかチェック, 無かった場合はエラーメッセージを返す
-            if (is_null(User::where('member_number', $user_id))){
-                return redirect()->route('records.index')->with(['status' => 'この会員番号は存在しません']);
+            if (is_null(User::where('member_number', $user_id)->first())){
+                return redirect()->route('records.index')->with(['status' => '会員番号 '. $user_id. ' 番は存在しません']);
             }
 
+            $user = User::where('member_number', $user_id)->first();
+//            $test = Record::where([['id', $user->id], ['date', 'LIKE', $date. "%"]])->first();
+//            $test = Record::where([['user_id', $user->id], ['created_at', 'LIKE', $date. "%"]])->first();
+//            dd($test);
+
             //検索したuser_idが既に本日の利用が無いかチェックする, 有った場合はエラーメッセージを返す
-            if (!is_null(Record::where([['member_number', $user_id], ['date', 'LIKE', $date. "%"]])->first())){
+            if (!is_null(Record::where([['user_id', $user->id], ['created_at', 'LIKE', $date. "%"]])->first())){
                 return redirect()->route('records.index')->with(['status' => '既に本日の施設利用履歴があります']);
             }
 
             //施設利用の登録に必要な選択肢を検索,格納する
-            $user = User::where('member_number', $user_id)->first();
+//            $user = User::where('member_number', $user_id)->first();
             $user->prices = Price::where('class', $user->class)->get();
             $user->rents = Price::where('class', 5)->get();
         }
@@ -59,6 +64,7 @@ class RecordsController extends Controller
 
         foreach ($records as $record) {
             $record->name = User::find($record->user_id)->name;
+            $record->member_number = User::find($record->user_id)->member_number;
             $user_class = User::find($record->user_id)->class;
             $items = PriceRecord::where('record_id', $record->id)->get('price_id');
 
@@ -87,7 +93,7 @@ class RecordsController extends Controller
             }
             $record->item_rents = $item_rents;
         }
-
+//dd($records);
         return view('records.index', compact('user',  'records'));
     }
 

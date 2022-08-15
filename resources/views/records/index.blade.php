@@ -36,17 +36,23 @@
                         <form method="POST" action="{{route('records.store')}}">
                             @csrf
                             <div class="input-group mr-sm-2">
-                                <input class="form-control bg-white text-center" type="text" placeholder="No.{{$user->id}} {{$user->name}} {{$user->class}}" readonly="">
+                                <input class="form-control bg-white text-center" type="text" placeholder="No.{{$user->member_number}} {{$user->name}}  区分：
+                                @if($user->class == 0)一般
+                                @elseif($user->class == 1)専門・大学
+                                @elseif($user->class == 2)高校生以下
+                                @elseif($user->class == 3)キッズ
+                                @else不明
+                                @endif" readonly="">
                                 <input name="id" type="hidden" value="{{$user->id}}">
                                     <select class="form-control" name="prices[]">
-                                    @foreach($user->prices as $price)
-                                        <option value="{{$price->id}}">{{$price->item}} {{$price->price}}円</option>
-                                    @endforeach
-                                </select>
+                                        @foreach($user->prices as $price)
+                                            <option value="{{$price->id}}">{{$price->item}} {{$price->price}}円</option>
+                                        @endforeach
+                                    </select>
                             </div>
 
                             <div class="input-group mr-sm-2 mt-3">
-{{--                                カスタムチェックボックス--}}
+{{--                                チェックボックス--}}
                                 <div class="d-flex flex-warp">
                                     @foreach($user->rents as $rent)
                                         <input type="checkbox" name="prices[]" class="btn-check" id="{{$rent->id}}" value="{{$rent->id}}" autocomplete="off">
@@ -97,10 +103,13 @@
                             <tboby>
                                 @foreach($records as $record)
                                     <tr>
-                                        <td>{{$record->user_id}}</td>
+                                        <td>{{$record->member_number}}</td>
                                         <td>{{$record->name}}</td>
                                         <td>{{$record->use_time->item??''}}</td>
                                         <td>
+                                            @empty($record->item_rents)
+                                                <span class="text-secondary">レンタル無し</span>
+                                            @endempty
                                             @foreach($record->item_rents as $item_rent)
                                             {{$item_rent->item}}
                                             @endforeach
@@ -116,6 +125,5 @@
             </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection

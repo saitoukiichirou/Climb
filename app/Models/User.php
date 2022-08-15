@@ -47,6 +47,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+//        'member_number' => 'integer',
     ];
 
     public function roles()
@@ -67,8 +68,12 @@ class User extends Authenticatable
 
     public function getUser()
     {
-        $users = User::orderBy('member_number')->paginate(10);
+//        $users = User::orderBy('member_number')->paginate(10);
 
+        //カラムがtext型なので数字に変換,さらにペジネーション
+        $users = User::orderByRaw('CAST(member_number as signed) ASC')->paginate(10);
+
+        //生年月日かた年齢を計算し追加する
         foreach ($users as $user){
             $now = date('Ymd');
             $birthday = $user->birthday;
