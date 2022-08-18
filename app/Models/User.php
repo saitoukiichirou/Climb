@@ -70,8 +70,8 @@ class User extends Authenticatable
     {
 //        $users = User::orderBy('member_number')->paginate(10);
 
-        //カラムがtext型なので数字に変換,さらにペジネーション
-        $users = User::orderByRaw('CAST(member_number as signed) ASC')->paginate(10);
+        //カラムがtext型なので数字に変換,さらにペジネーション50件毎
+        $users = User::orderByRaw('CAST(member_number as signed) ASC')->paginate(50);
 
         //生年月日かた年齢を計算し追加する
         foreach ($users as $user){

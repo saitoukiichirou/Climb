@@ -41,7 +41,7 @@
                                 @elseif($user->class == 1)専門・大学
                                 @elseif($user->class == 2)高校生以下
                                 @elseif($user->class == 3)キッズ
-                                @else不明
+                                @else 不明
                                 @endif" readonly="">
                                 <input name="id" type="hidden" value="{{$user->id}}">
                                     <select class="form-control" name="prices[]">
