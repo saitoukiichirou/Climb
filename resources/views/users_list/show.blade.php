@@ -41,8 +41,32 @@
                                             専門・大学生
                                         @elseif(2 === $user->class)
                                             高校生以下
-                                        @elseif(3=== $user->class)
+                                        @elseif(3 === $user->class)
                                             キッズ
+                                        @endif
+                                    </td>
+                                <tr>
+                                <tr>
+                                    <th>段位</th>
+                                    <td>
+                                        @if(0 === $user->grade)
+                                            達人
+                                        @elseif(1 === $user->grade)
+                                            黒帯
+                                        @elseif(2 === $user->grade)
+                                            上級
+                                        @elseif(3 === $user->grade)
+                                            赤帯
+                                        @elseif(4 === $user->grade)
+                                            中級
+                                        @elseif(5 === $user->grade)
+                                            小結
+                                        @elseif(6 === $user->grade)
+                                            白帯
+                                        @elseif(7 === $user->grade)
+                                            初級
+                                        @else
+                                            未設定
                                         @endif
                                     </td>
                                 <tr>

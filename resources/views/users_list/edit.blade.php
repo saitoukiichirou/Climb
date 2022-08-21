@@ -99,6 +99,49 @@
                                         @enderror
                                     </div>
                                 </div>
+
+                                {{--段位--}}
+                                <div class="row mb-3">
+                                    <label for="class" class="col-md-4 col-form-label text-md-end">{{('段位')}}</label>
+
+                                    <div class="col-md-6">
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+
+                                            <input id="grade-0" type="radio" class="btn-check @error('grade') is-invalid @enderror" name="grade" value="0" @if(0 == $user->grade)checked="checked" @endif>
+                                            <label class="btn btn-outline-secondary" for="grade-0">達人</label>
+
+                                            <input id="grade-1" type="radio" class="btn-check @error('grade') is-invalid @enderror" name="grade" value="1" @if(1 == $user->grade)checked="checked" @endif>
+                                            <label class="btn btn-outline-secondary" for="grade-1">黒帯</label>
+
+                                            <input id="grade-2" type="radio" class="btn-check @error('grade') is-invalid @enderror" name="grade" value="2" @if(2 == $user->grade)checked="checked" @endif>
+                                            <label class="btn btn-outline-secondary" for="grade-2">上級</label>
+
+                                            <input id="grade-3" type="radio" class="btn-check @error('grade') is-invalid @enderror" name="grade" value="3" @if(3 == $user->grade)checked="checked" @endif>
+                                            <label class="btn btn-outline-secondary" for="grade-3">赤帯</label>
+
+                                            <input id="grade-4" type="radio" class="btn-check @error('grade') is-invalid @enderror" name="grade" value="4" @if(4 == $user->grade)checked="checked" @endif>
+                                            <label class="btn btn-outline-secondary" for="grade-4">中級</label>
+
+                                            <input id="grade-5" type="radio" class="btn-check @error('grade') is-invalid @enderror" name="grade" value="5" @if(5 == $user->grade)checked="checked" @endif>
+                                            <label class="btn btn-outline-secondary" for="grade-5">小結</label>
+
+                                            <input id="grade-6" type="radio" class="btn-check @error('grade') is-invalid @enderror" name="grade" value="6" @if(6 == $user->grade)checked="checked" @endif>
+                                            <label class="btn btn-outline-secondary" for="grade-6">白帯</label>
+
+                                            <input id="grade-7" type="radio" class="btn-check @error('grade') is-invalid @enderror" name="grade" value="7" @if(7 == $user->grade)checked="checked" @endif>
+                                            <label class="btn btn-outline-secondary" for="grade-7">初級</label>
+
+                                            <input id="grade-8" type="radio" class="btn-check @error('grade') is-invalid @enderror" name="grade" value="" @if (!isset($user->grade))checked="checked" @endif>
+                                            <label class="btn btn-outline-secondary" for="grade-8">未設定</label>
+                                        </div>
+
+                                        @error('grade')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
+                                    </div>
+                                </div>
                                 {{--メールアドレス--}}
                                 <div class="row mb-3">
                                     <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>

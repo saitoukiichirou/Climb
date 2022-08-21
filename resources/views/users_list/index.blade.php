@@ -26,6 +26,9 @@
                                 {{ session('status') }}
                             </div>
                         @endif
+                        <div class="mb-2 flex-">
+                            {{ $users->links('vendor.pagination.bootstrap-4') }}
+                        </div>
                         <table class="table table-hover flex justify-content-center">
                             <thead>
                             <tr>
@@ -34,6 +37,7 @@
                                 <th>性別</th>
                                 <th>年齢</th>
                                 <th>種別</th>
+                                <th>段位</th>
                                 <th class="text-center">詳細確認</th>
                                 <th class="text-center">課題状況</th>
                             </tr>
@@ -64,7 +68,27 @@
                                                 不明
                                             @endif
                                         </td>
-                                        {{--    ユーザごとの詳細確認画面へ--}}
+                                        <td>
+                                            @if(0 === $user->grade)
+                                                達人
+                                            @elseif(1 === $user->grade)
+                                                黒帯
+                                            @elseif(2 === $user->grade)
+                                                上級
+                                            @elseif(3 === $user->grade)
+                                                赤帯
+                                            @elseif(4 === $user->grade)
+                                                中級
+                                            @elseif(5 === $user->grade)
+                                                小結
+                                            @elseif(6 === $user->grade)
+                                                白帯
+                                            @elseif(7 === $user->grade)
+                                                初級
+                                            @else
+                                                未設定
+                                            @endif
+                                        </td>                                        {{--    ユーザごとの詳細確認画面へ--}}
                                         <td class="text-center">
                                             <a href="{{route('users_list.show', $user)}}">
                                                 <button type="button" class="btn btn-outline-primary">

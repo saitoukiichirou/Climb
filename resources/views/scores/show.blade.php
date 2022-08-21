@@ -32,33 +32,7 @@
                             <tboby>
                                 @foreach($problems as $key1 => $val1)
                                     <tr>
-                                        <td>
-                                            @if("00" == $key1)
-                                                3段
-                                            @elseif("01" == $key1)
-                                                2段
-                                            @elseif("02" == $key1)
-                                                初段
-                                            @elseif("03" == $key1)
-                                                1級
-                                            @elseif("4" == $key1)
-                                                2級
-                                            @elseif("05" == $key1)
-                                                3級
-                                            @elseif("06" == $key1)
-                                                4級
-                                            @elseif("07" == $key1)
-                                                5級
-                                            @elseif("08" == $key1)
-                                                6級
-                                            @elseif("09" == $key1)
-                                                7級
-                                            @elseif("10" == $key1)
-                                                8級
-                                            @else
-                                                不明
-                                            @endif
-                                            <br>
+                                        <td>{{\App\Models\Problem::convProblemGrade($key1)}}<br>
                                             {{\App\Models\Score::achievementProblem($user->id, $key1)}}
                                         </td>
                                         @foreach($val1 as $key2 => $val2)

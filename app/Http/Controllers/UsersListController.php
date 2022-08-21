@@ -47,7 +47,7 @@ class UsersListController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -58,14 +58,13 @@ class UsersListController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($user)
     {
         $user = User::find($user);
-        if (is_null($user))
-        {
+        if (is_null($user)) {
             return redirect('users_list')->with(['status' => 'ユーザーを選択してください']);
         }
 
@@ -75,14 +74,13 @@ class UsersListController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($user)
     {
         $user = User::find($user);
-        if (is_null($user))
-        {
+        if (is_null($user)) {
             return redirect('users_list')->with(['status' => 'ユーザーを選択してください']);
         }
 
@@ -92,8 +90,8 @@ class UsersListController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -105,6 +103,9 @@ class UsersListController extends Controller
             'class' => ['required', 'int', 'max:10'],
             'birthday' => ['required', 'date', 'max:10'],
 
+            //gradeを追加
+            'grade' => ['nullable', 'int', 'max:10'],
+
 //          テスト運用ではemail,address,phoneはnullを許容する
             'email' => ['nullable', 'string', 'email', 'max:255'],
             'address' => ['nullable', 'string', 'max:100'],
@@ -114,7 +115,7 @@ class UsersListController extends Controller
 //            'address' => ['required', 'string', 'max:100'],
 //            'phone' => ['required', 'string', 'max:20'],
         ]);
-
+//dd($inputs);
         User::where('id', $id)->update($inputs);
 
         return back()->with('status', '更新しました');
@@ -124,13 +125,13 @@ class UsersListController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         User::where('id', $id)->delete();
-        return redirect(route('users_list.index'))->with('status', '会員番号'.$id.'を削除しました');
+        return redirect(route('users_list.index'))->with('status', '会員番号' . $id . 'を削除しました');
 
     }
 }

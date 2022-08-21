@@ -34,6 +34,18 @@
                         </div>
                 </div>
             </div>
+            @can('admin')
+            <div class="card my-3">
+                <div class="card-header">
+                    お知らせ
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">更新情報</h5>
+                    <p class="card-text">8/19  ユーザー一覧画修正  1ページあたり50件表示できるようにしました</p>
+                    <p class="card-text">8/19  ユーザー一覧画修正  ページの上部にもページ送りボタンを追加しました</p>
+                </div>
+            </div>
+            @endcan
         </div>
     </div>
 </div>

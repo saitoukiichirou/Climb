@@ -14,6 +14,14 @@ class Problem extends Model
         return $this->hasMany('App\Models\Score');
     }
 
+    protected $fillable = [
+        'dimension',
+        'grade',
+        'hold_color',
+        'tape_form',
+        'setter',
+    ];
+
     public function isLikedBy($user): bool
     {
         return Score::where([
@@ -54,16 +62,33 @@ class Problem extends Model
         return $marge_grades;
     }
 
-//    public function getProblem($grade, $dimension)
-//    {
-//        return Problem::where([['grade', $grade], ['dimension', $dimension]])->get();
-//    }
-
-    protected $fillable = [
-        'dimension',
-        'grade',
-        'hold_color',
-        'tape_form',
-        'setter',
-    ];
+    //値を課題のグレードに変換
+    public function convProblemGrade($param)
+    {
+        if ($param == "00"){
+            return '3段';
+        }elseif ($param == "01"){
+            return '2段';
+        }elseif ($param == "02"){
+            return '初段';
+        }elseif ($param == "03"){
+            return '1級';
+        }elseif ($param == "04"){
+            return '2級';
+        }elseif ($param == "05"){
+            return '3級';
+        }elseif ($param == "06"){
+            return '4級';
+        }elseif ($param == "07"){
+            return '5級';
+        }elseif ($param == "08"){
+            return '6級';
+        }elseif ($param == "09"){
+            return '7級';
+        }elseif ($param == "10"){
+            return '8級';
+        }else{
+            return '不明';
+        }
+    }
 }

@@ -5,7 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">{{ __('スコア表') }}</div>
+                    <div class="card-header">
+                        <h4>{{Auth::user()->name}}さんの段位  [ {{(\App\Models\User::convUserGrade(Auth::user()->grade))}} ]</h4>
+                    </div>
 
                     <div id="app">
                         <div class="card-header p-0 border-0">
@@ -30,7 +32,7 @@
                                 <div class="swiper-wrapper">
                                     {{--ここから Tab A のコンテンツ--}}
                                     <div class="swiper-slide">
-                                        <h1 class="text-center">A面 88°</h1>
+                                        <h1 class="text-center">A面 スラブ</h1>
                                         <table class="table table-hover flex justify-content-center">
                                             <thead>
                                             <tr>
@@ -45,33 +47,7 @@
                                                 @foreach($problems as $problem)
                                                     @if("A" == $problem->dimension)
                                                         <tr>
-                                                            <td>
-                                                                @if("00" == $problem->grade)
-                                                                    3段
-                                                                @elseif("01" == $problem->grade)
-                                                                    2段
-                                                                @elseif("02" == $problem->grade)
-                                                                    初段
-                                                                @elseif("03" == $problem->grade)
-                                                                    1級
-                                                                @elseif("4" == $problem->grade)
-                                                                    2級
-                                                                @elseif("05" == $problem->grade)
-                                                                    3級
-                                                                @elseif("06" == $problem->grade)
-                                                                    4級
-                                                                @elseif("07" == $problem->grade)
-                                                                    5級
-                                                                @elseif("08" == $problem->grade)
-                                                                    6級
-                                                                @elseif("09" == $problem->grade)
-                                                                    7級
-                                                                @elseif("10" == $problem->grade)
-                                                                    8級
-                                                                @else
-                                                                    不明
-                                                                @endif
-                                                            </td>
+                                                            <td>{{\App\Models\Problem::convProblemGrade($problem->grade)}}</td>
                                                             <td>{{$problem->hold_color}}</td>
                                                             <td>{{$problem->tape_form}}</td>
 
@@ -100,7 +76,7 @@
                                     </div>
                                     {{--ここから Tab B のコンテンツ--}}
                                     <div class="swiper-slide">
-                                        <h1 class="text-center">B面  105°</h1>
+                                        <h1 class="text-center">B面  100°</h1>
                                         <table class="table table-hover flex justify-content-center">
                                             <thead>
                                             <tr>
@@ -115,33 +91,7 @@
                                                 @foreach($problems as $problem)
                                                     @if("B" == $problem->dimension)
                                                         <tr>
-                                                            <td>
-                                                                @if("00" == $problem->grade)
-                                                                    3段
-                                                                @elseif("01" == $problem->grade)
-                                                                    2段
-                                                                @elseif("02" == $problem->grade)
-                                                                    初段
-                                                                @elseif("03" == $problem->grade)
-                                                                    1級
-                                                                @elseif("4" == $problem->grade)
-                                                                    2級
-                                                                @elseif("05" == $problem->grade)
-                                                                    3級
-                                                                @elseif("06" == $problem->grade)
-                                                                    4級
-                                                                @elseif("07" == $problem->grade)
-                                                                    5級
-                                                                @elseif("08" == $problem->grade)
-                                                                    6級
-                                                                @elseif("09" == $problem->grade)
-                                                                    7級
-                                                                @elseif("10" == $problem->grade)
-                                                                    8級
-                                                                @else
-                                                                    不明
-                                                                @endif
-                                                            </td>
+                                                            <td>{{\App\Models\Problem::convProblemGrade($problem->grade)}}</td>
                                                             <td>{{$problem->hold_color}}</td>
                                                             <td>{{$problem->tape_form}}</td>
                                                             <!-- 非同期機能はじまり, problems.phpに作ったisLikedByメソッドをここで使用 -->
@@ -169,7 +119,7 @@
                                     </div>
                                     {{--ここから Tab C のコンテンツ--}}
                                     <div class="swiper-slide">
-                                        <h1 class="text-center">C面 120°</h1>
+                                        <h1 class="text-center">C面 125°</h1>
                                         <table class="table table-hover flex justify-content-center">
                                             <thead>
                                             <tr>
@@ -184,33 +134,7 @@
                                                 @foreach($problems as $problem)
                                                     @if("C" == $problem->dimension)
                                                         <tr>
-                                                            <td>
-                                                                @if("00" == $problem->grade)
-                                                                    3段
-                                                                @elseif("01" == $problem->grade)
-                                                                    2段
-                                                                @elseif("02" == $problem->grade)
-                                                                    初段
-                                                                @elseif("03" == $problem->grade)
-                                                                    1級
-                                                                @elseif("4" == $problem->grade)
-                                                                    2級
-                                                                @elseif("05" == $problem->grade)
-                                                                    3級
-                                                                @elseif("06" == $problem->grade)
-                                                                    4級
-                                                                @elseif("07" == $problem->grade)
-                                                                    5級
-                                                                @elseif("08" == $problem->grade)
-                                                                    6級
-                                                                @elseif("09" == $problem->grade)
-                                                                    7級
-                                                                @elseif("10" == $problem->grade)
-                                                                    8級
-                                                                @else
-                                                                    不明
-                                                                @endif
-                                                            </td>
+                                                            <td>{{\App\Models\Problem::convProblemGrade($problem->grade)}}</td>
                                                             <td>{{$problem->hold_color}}</td>
                                                             <td>{{$problem->tape_form}}</td>
                                                             <!-- 非同期機能はじまり, problems.phpに作ったisLikedByメソッドをここで使用 -->
@@ -252,33 +176,7 @@
                                                 @foreach($problems as $problem)
                                                     @if("D" == $problem->dimension)
                                                         <tr>
-                                                            <td>
-                                                                @if("00" == $problem->grade)
-                                                                    3段
-                                                                @elseif("01" == $problem->grade)
-                                                                    2段
-                                                                @elseif("02" == $problem->grade)
-                                                                    初段
-                                                                @elseif("03" == $problem->grade)
-                                                                    1級
-                                                                @elseif("4" == $problem->grade)
-                                                                    2級
-                                                                @elseif("05" == $problem->grade)
-                                                                    3級
-                                                                @elseif("06" == $problem->grade)
-                                                                    4級
-                                                                @elseif("07" == $problem->grade)
-                                                                    5級
-                                                                @elseif("08" == $problem->grade)
-                                                                    6級
-                                                                @elseif("09" == $problem->grade)
-                                                                    7級
-                                                                @elseif("10" == $problem->grade)
-                                                                    8級
-                                                                @else
-                                                                    不明
-                                                                @endif
-                                                            </td>
+                                                            <td>{{\App\Models\Problem::convProblemGrade($problem->grade)}}</td>
                                                             <td>{{$problem->hold_color}}</td>
                                                             <td>{{$problem->tape_form}}</td>
                                                             <!-- 非同期機能はじまり, problems.phpに作ったisLikedByメソッドをここで使用 -->

@@ -68,10 +68,8 @@ class User extends Authenticatable
 
     public function getUser()
     {
-//        $users = User::orderBy('member_number')->paginate(10);
-
         //カラムがtext型なので数字に変換,さらにペジネーション50件毎
-        $users = User::orderByRaw('CAST(member_number as signed) ASC')->paginate(50);
+        $users = User::orderByRaw('CAST(member_number as signed) ASC')->paginate(5);
 
         //生年月日かた年齢を計算し追加する
         foreach ($users as $user){
@@ -83,6 +81,30 @@ class User extends Authenticatable
         }
 
         return $users;
+    }
+
+    //値を段位に変換
+    public function convUserGrade($param)
+    {
+        if ($param === 0){
+            return '達人';
+        }elseif ($param === 1){
+            return '黒帯';
+        }elseif ($param === 2){
+            return '上級';
+        }elseif ($param === 3){
+            return '赤帯';
+        }elseif ($param === 4){
+            return '中級';
+        }elseif ($param === 5){
+            return '小結';
+        }elseif ($param === 6){
+            return '白帯';
+        }elseif ($param === 7){
+            return '初級';
+        }else{
+            return '初級';
+        }
     }
 
 }
