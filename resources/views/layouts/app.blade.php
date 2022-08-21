@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-{{--本番環境時コメントアウト--}}
+{{-- ローカル環境時 --}}
+@if(app('env')=='local')
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,61 +12,65 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- bootstrap4 ver.normal enable-->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/03be82f655.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/like.js') }}"></script>
+
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+</head>
+@endif
 
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
+{{--本番環境時--}}
+@if(app('env')=='production')
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <!-- Styles -->
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+
     <!-- bootstrap4 ver.normal enable-->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
-<!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+    <!-- Scripts -->
+    <script src="{{ secure_asset('js/app.js') }}" defer></script>
+    <script src="{{ secure_asset('js/like.js') }}"></script>
+    <script src="https://kit.fontawesome.com/03be82f655.js" crossorigin="anonymous"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
 </head>
-
-{{--ローカル環境時コメントアウト--}}
-{{--<head>--}}
-{{--    <meta charset="utf-8">--}}
-{{--    <meta name="viewport" content="width=device-width, initial-scale=1">--}}
-
-{{--    <!-- CSRF Token -->--}}
-{{--    <meta name="csrf-token" content="{{ csrf_token() }}">--}}
-
-{{--    <title>{{ config('app.name', 'Laravel') }}</title>--}}
-
-{{--    <!-- Scripts -->--}}
-{{--    <script src="{{ secure_asset('js/app.js') }}" defer></script>--}}
-{{--    <script src="https://kit.fontawesome.com/03be82f655.js" crossorigin="anonymous"></script>--}}
-{{--    <script src="{{ secure_asset('js/like.js') }}"></script>--}}
-{{--    <!-- Swiper JS -->--}}
-{{--    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>--}}
-
-{{--    <!-- Swiper CSS -->--}}
-{{--    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>--}}
-
-
-{{--    <!-- Fonts -->--}}
-{{--    <link rel="dns-prefetch" href="//fonts.gstatic.com">--}}
-{{--    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">--}}
-
-{{--    <!-- bootstrap4 ver.normal enable-->--}}
-{{--    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>--}}
-
-{{--    <!-- Styles -->--}}
-{{--    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">--}}
-
-{{--</head>--}}
+@endif
 
 <body>
 <div id="app">
