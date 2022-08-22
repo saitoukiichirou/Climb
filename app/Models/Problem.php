@@ -87,8 +87,26 @@ class Problem extends Model
             return '7級';
         }elseif ($param == "10"){
             return '8級';
+        }elseif ($param == "21"){
+            return 'スクール';
+        }elseif ($param == "22"){
+            return 'エクストラ';
         }else{
             return '不明';
         }
+    }
+
+    public function getStdProblem()
+    {
+        //通常課題のみ取得
+        //カラム dimension,gradeそれぞれ昇順でソート
+        return Problem::wherebetween('grade', [00, 10])->orderBy('dimension')->orderBy('grade')->get();
+    }
+
+    public function getSclProblem()
+    {
+        //スクール課題のみ取得
+        //カラム dimension,gradeそれぞれ昇順でソート
+        return Problem::wherebetween('grade', [21, 22])->orderBy('dimension')->orderBy('grade')->get();
     }
 }

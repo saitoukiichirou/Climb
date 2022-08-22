@@ -55,16 +55,16 @@
     <!-- Styles -->
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
 
-    <!-- bootstrap4 ver.normal enable-->
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
+    <!-- bootstrap4 ver.normal enable-->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
     <!-- Scripts -->
     <script src="{{ secure_asset('js/app.js') }}" defer></script>
-    <script src="{{ secure_asset('js/like.js') }}"></script>
     <script src="https://kit.fontawesome.com/03be82f655.js" crossorigin="anonymous"></script>
+    <script src="{{ secure_asset('js/like.js') }}"></script>
 
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>

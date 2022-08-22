@@ -50,17 +50,19 @@
                                 {{--                    <input type="text" name="title" class="form-control" id="title" placeholder="Enter Title">--}}
                                 <select name="grade" class="form-control">
                                     <option value="" selected disabled>リストから選択してください</option>
-                                    <option value="00" @if(0 == $problem->grade)selected @endif>3段</option>
-                                    <option value="01" @if(1 == $problem->grade)selected @endif>2段</option>
-                                    <option value="02" @if(2 == $problem->grade)selected @endif>初段</option>
-                                    <option value="03" @if(3 == $problem->grade)selected @endif>1級</option>
-                                    <option value="04" @if(4 == $problem->grade)selected @endif>2級</option>
-                                    <option value="05" @if(5 == $problem->grade)selected @endif>3級</option>
-                                    <option value="06" @if(6 == $problem->grade)selected @endif>4級</option>
-                                    <option value="07" @if(7 == $problem->grade)selected @endif>5級</option>
-                                    <option value="08" @if(8 == $problem->grade)selected @endif>6級</option>
-                                    <option value="09" @if(9 == $problem->grade)selected @endif>7級</option>
-                                    <option value="10" @if(10 == $problem->grade)selected @endif>8級</option>
+                                    <option value="00" @if("00" == $problem->grade)selected @endif>3段</option>
+                                    <option value="01" @if("01" == $problem->grade)selected @endif>2段</option>
+                                    <option value="02" @if("02" == $problem->grade)selected @endif>初段</option>
+                                    <option value="03" @if("03" == $problem->grade)selected @endif>1級</option>
+                                    <option value="04" @if("04" == $problem->grade)selected @endif>2級</option>
+                                    <option value="05" @if("05" == $problem->grade)selected @endif>3級</option>
+                                    <option value="06" @if("06" == $problem->grade)selected @endif>4級</option>
+                                    <option value="07" @if("07" == $problem->grade)selected @endif>5級</option>
+                                    <option value="08" @if("08" == $problem->grade)selected @endif>6級</option>
+                                    <option value="09" @if("09" == $problem->grade)selected @endif>7級</option>
+                                    <option value="10" @if("10" == $problem->grade)selected @endif>8級</option>
+                                    <option value="09" @if("21" == $problem->grade)selected @endif>スクール</option>
+                                    <option value="10" @if("22" == $problem->grade)selected @endif>エクストラ</option>
                                 </select>
                             </div>
 

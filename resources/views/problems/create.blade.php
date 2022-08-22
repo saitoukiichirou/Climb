@@ -59,6 +59,8 @@
                                     <option value="08">6級</option>
                                     <option value="09">7級</option>
                                     <option value="10">8級</option>
+                                    <option value="21">スクール</option>
+                                    <option value="22">エクストラ</option>
                                 </select>
                             </div>
 

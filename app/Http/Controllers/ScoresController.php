@@ -19,8 +19,7 @@ class ScoresController extends Controller
      */
     public function index()
     {
-//        $user_id = Auth::user()->id;
-        $problems = Problem::orderBy('dimension')->orderBy('grade')->get();
+        $problems = Problem::getStdProblem();
 
         return view('scores.index', compact('problems'));
     }

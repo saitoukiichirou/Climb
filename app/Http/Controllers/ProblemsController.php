@@ -15,8 +15,9 @@ class ProblemsController extends Controller
     public function index()
     {
         //カラム dimension,gradeそれぞれ昇順でソート
-        $problems = Problem::orderBy('dimension')->orderBy('grade')->get();
-        return view('problems.index', compact('problems'));
+        $problems = Problem::getStdProblem();
+        $problems_scl = Problem::getSclProblem();
+        return view('problems.index', compact('problems', 'problems_scl'));
     }
 
     /**
