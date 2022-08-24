@@ -11336,6 +11336,39 @@ textarea.form-control-lg {
     border-left: 1px solid rgba(86, 86, 82, 0.3);
 }
 
+.pcc-gray {
+    background: linear-gradient(135deg, rgba(117, 117, 112, 0.5), transparent);
+}
+.pcc-black {
+    background: linear-gradient(135deg, rgb(33, 37, 41), transparent);
+    /*color       : #ffffff;*/
+    text-shadow:  5px  5px 20px #FFFFFF ,
+    -5px  5px 20px #FFFFFF ,
+    5px -5px 20px #FFFFFF ,
+    -5px -5px 20px #FFFFFF;
+    /*color: #0dcaf0;*/
+}
+.pcc-green {
+    background: linear-gradient(135deg, rgba(11, 122, 11, 0.4), transparent);
+}
+.pcc-red {
+    background: linear-gradient(135deg, rgba(255, 6, 6, 0.4), transparent);
+}
+.pcc-blue {
+    background: linear-gradient(135deg, rgba(0, 89, 255, 0.4), transparent);
+}
+.pcc-yellow {
+    background: linear-gradient(135deg, rgba(255, 211, 13, 0.4), transparent);
+}
+.pcc-white {
+    background: linear-gradient(90deg, rgb(255, 255, 255), transparent);
+}
+.pcc-pink {
+    background: linear-gradient(135deg, rgba(255, 52, 203, 0.4), transparent);
+}
+.pcc-orange {
+    background: linear-gradient(135deg, rgba(252, 155, 55, 0.4), transparent);
+}
 /*マウスオン時の動作, いらないかも*/
 /*.btn-circle:hover {*/
 /*    transform: translate(0, 2px);*/

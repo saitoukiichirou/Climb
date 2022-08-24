@@ -6,7 +6,7 @@
             <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">
-                        <h4>{{Auth::user()->name}}さんの段位  [ {{(\App\Models\User::convUserGrade(Auth::user()->grade))}} ]</h4>
+                        <h4>{{Auth::user()->name ?? ''}}さんの段位  [ {{(\App\Models\User::convUserGrade(Auth::user()->grade)) ?? ''}} ]</h4>
                     </div>
 
                     <div id="app">
@@ -46,7 +46,7 @@
                                             <tboby>
                                                 @foreach($problems as $problem)
                                                     @if("A" == $problem->dimension)
-                                                        <tr>
+                                                        <tr class="py-4 {{\App\Models\Problem::problemColorClass($problem->grade)}}">
                                                             <td>{{\App\Models\Problem::convProblemGrade($problem->grade)}}</td>
                                                             <td>{{$problem->hold_color}}</td>
                                                             <td>{{$problem->tape_form}}</td>
@@ -90,7 +90,7 @@
                                             <tboby>
                                                 @foreach($problems as $problem)
                                                     @if("B" == $problem->dimension)
-                                                        <tr>
+                                                        <tr class="py-1 {{\App\Models\Problem::problemColorClass($problem->grade)}}">
                                                             <td>{{\App\Models\Problem::convProblemGrade($problem->grade)}}</td>
                                                             <td>{{$problem->hold_color}}</td>
                                                             <td>{{$problem->tape_form}}</td>
@@ -133,7 +133,7 @@
                                             <tboby>
                                                 @foreach($problems as $problem)
                                                     @if("C" == $problem->dimension)
-                                                        <tr>
+                                                        <tr class="{{\App\Models\Problem::problemColorClass($problem->grade)}}">
                                                             <td>{{\App\Models\Problem::convProblemGrade($problem->grade)}}</td>
                                                             <td>{{$problem->hold_color}}</td>
                                                             <td>{{$problem->tape_form}}</td>
@@ -175,7 +175,7 @@
                                             <tboby>
                                                 @foreach($problems as $problem)
                                                     @if("D" == $problem->dimension)
-                                                        <tr>
+                                                        <tr class="{{\App\Models\Problem::problemColorClass($problem->grade)}}">
                                                             <td>{{\App\Models\Problem::convProblemGrade($problem->grade)}}</td>
                                                             <td>{{$problem->hold_color}}</td>
                                                             <td>{{$problem->tape_form}}</td>

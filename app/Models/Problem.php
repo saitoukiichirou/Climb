@@ -96,6 +96,39 @@ class Problem extends Model
         }
     }
 
+    //グレードごとに色の指定をcssで変えたい
+    public function problemColorClass($param)
+    {
+        if ($param == "00"){
+            return 'pcc-gray';
+        }elseif ($param == "01"){
+            return 'pcc-gray';
+        }elseif ($param == "02"){
+            return 'pcc-gray';
+        }elseif ($param == "03"){
+            return 'pcc-black';
+        }elseif ($param == "04"){
+            return 'pcc-green';
+        }elseif ($param == "05"){
+            return 'pcc-red';
+        }elseif ($param == "06"){
+            return 'pcc-blue';
+        }elseif ($param == "07"){
+            return 'pcc-yellow';
+        }elseif ($param == "08"){
+            return 'pcc-white';
+        }elseif ($param == "09"){
+            return 'pcc-pink';
+        }elseif ($param == "10"){
+            return 'pcc-pink';
+        }elseif ($param == "21"){
+            return 'pcc-orange';
+        }elseif ($param == "22"){
+            return 'pcc-orange';
+        }else{
+            return '不明';
+        }
+    }
     public function getStdProblem()
     {
         //通常課題のみ取得
