@@ -15,15 +15,19 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        //管理者アカウント1件
         $param = [
             'id' => '1',
-            'member_number' => 'todoadmin',
+            'member_number' => 'admin',
             'name' => 'アドミニストレータ',
             'gender' => '0',
             'class' => '0',
             'birthday' => '1900-01-01',
-            'password' => Hash::make('adminidais'),
+            'password' => Hash::make('admin'),
         ];
         User::create($param);
+
+        //ダミーユーザー100件生成
+        User::factory()->count(100)->create();
     }
 }
