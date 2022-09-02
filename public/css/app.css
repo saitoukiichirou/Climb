@@ -11341,12 +11341,16 @@ textarea.form-control-lg {
 }
 .pcc-black {
     background: linear-gradient(135deg, rgb(33, 37, 41), transparent);
-    /*color       : #ffffff;*/
-    text-shadow:  5px  5px 20px #FFFFFF ,
-    -5px  5px 20px #FFFFFF ,
-    5px -5px 20px #FFFFFF ,
-    -5px -5px 20px #FFFFFF;
-    /*color: #0dcaf0;*/
+    color          : #000000;            /* 文字の色 */
+    text-shadow    :
+        2px  2px 1px #ffffff,
+        -2px  2px 1px #ffffff,
+        2px -2px 1px #ffffff,
+        -2px -2px 1px #ffffff,
+        2px  0px 1px #ffffff,
+        0px  2px 1px #ffffff,
+        -2px  0px 1px #ffffff,
+        0px -2px 1px #ffffff;
 }
 .pcc-green {
     background: linear-gradient(135deg, rgba(11, 122, 11, 0.4), transparent);
@@ -11367,97 +11371,5 @@ textarea.form-control-lg {
     background: linear-gradient(135deg, rgba(255, 52, 203, 0.4), transparent);
 }
 .pcc-orange {
-    background: linear-gradient(135deg, rgba(252, 155, 55, 0.4), transparent);
+    background: linear-gradient(135deg, rgba(255, 110, 32, 0.4), transparent);
 }
-/*マウスオン時の動作, いらないかも*/
-/*.btn-circle:hover {*/
-/*    transform: translate(0, 2px);*/
-/*    -webkit-box-shadow: 0 2px 0 #3d3d3a;*/
-/*    box-shadow: 0 2px 0 #3d3d3a;*/
-/*}*/
-
-/*.tab-menu {*/
-/*    .swiper-wrapper {*/
-/*        .swiper-slide {*/
-/*            padding: 20px 0;*/
-/*            text-align: center;*/
-/*            color: #555555;*/
-/*            background-color: #ffffff;;*/
-/*            cursor: pointer;*/
-/*            border-right: 2px solid #2f3640;*/
-
-/*        &:last-child {*/
-/*             border: 0;*/
-/*         }*/
-/*        }*/
-
-/*        !*.swiper-slide-thumb-active {*!*/
-/*        !*    background-color: #cccccc;*!*/
-/*        !*}*!*/
-/*    }*/
-/*}*/
-
-/*.tab-content {*/
-
-/*    .swiper-wrapper {*/
-
-/*        .swiper-slide {*/
-/*            display: flex;*/
-/*            flex-wrap: wrap;*/
-/*            justify-content: space-between;*/
-
-/*            h1 {*/
-/*                width: 100%;*/
-/*                margin: 20px 0;*/
-/*                color: white;*/
-/*                font-size: 1.5rem;*/
-/*            }*/
-
-/*            .post {*/
-/*                width: calc(94% / 3);*/
-/*                margin: 0 0 28px 0;*/
-/*                background-color: #ffffff;*/
-
-/*                a {*/
-/*                    display: block;*/
-/*                    text-decoration: none;*/
-/*                    img {*/
-/*                        width: 100%;*/
-/*                    }*/
-
-/*                    h2 {*/
-/*                        padding: 10px;*/
-/*                        color: #555555;*/
-/*                        font-size: 1.14rem;*/
-/*                        font-weight: bold;*/
-/*                    }*/
-
-/*                    p {*/
-/*                        padding: 0 10px 10px 10px;*/
-/*                        color: #555555;*/
-/*                    }*/
-/*                }*/
-/*            }*/
-/*        }*/
-/*    }*/
-/*}*/
-
-
-/*.container {*/
-/*    max-width: 375px;*/
-/*    margin: 30px auto;*/
-/*    border: 1px solid #CCC;*/
-/*}*/
-/*.swiper{*/
-/*    margin: 0 auto 30px;*/
-/*}*/
-
-
-
-/*.tab-contents {*/
-/*    margin: 30px auto;*/
-/*}*/
-
-/*.tab-contents {*/
-/*    margin: 30px auto;*/
-/*}*/
