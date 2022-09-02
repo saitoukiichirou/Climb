@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Problem;
 use Illuminate\Database\Seeder;
 
 class ProblemsTableSeeder extends Seeder
@@ -13,6 +14,7 @@ class ProblemsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        //ダミーユーザー100件生成
+        Problem::factory()->count(90)->create();
     }
 }
