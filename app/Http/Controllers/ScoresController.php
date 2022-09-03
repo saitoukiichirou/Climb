@@ -105,7 +105,8 @@ class ScoresController extends Controller
             //Scoreインスタンスにproblem_id,user_idをセット
             $score->user_id = $user_id;
             $score->problem_id = $problem_id;
-            $score->status = 0;
+            //statusカラムを削除したのでいらなくなった
+//            $score->status = 0;
             $score->save();
         } else {
             //もしこのユーザーがこの$problemを既に完登してたらdelete
