@@ -26,6 +26,17 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('admin'),
         ];
         User::create($param);
+        
+        //ゲスト閲覧用アカウント1件
+        $param = [
+            'id' => '2',
+            'member_number' => 'guest',
+            'name' => 'ゲスト',
+            'gender' => '0',
+            'class' => '0',
+            'birthday' => '1900-01-01',
+            'password' => Hash::make('guest'),
+        ];
 
         //ダミーユーザー100件生成
         User::factory()->count(100)->create();
