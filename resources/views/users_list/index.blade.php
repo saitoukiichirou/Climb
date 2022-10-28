@@ -5,28 +5,21 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card px-0">
-                    <div class="card-header">{{ __('会員名簿') }}</div>
-
-                    {{--                        検索機能　名前のみ  --}}
-                                        <div class="card-header">
-                                            <h6>{{ __('名前検索') }}</h6>
-                                            <div>
-                                                <form method="POST" action="{{ route('users_list.search')}}">
-                                                    @csrf
-                                                    <input type="text" name="name" class="form-control">
-                                                    <button type="submit" class="btn btn-primary">{{ __('検索') }}</button>
-                                                </form>
-
-                                            </div>
-                                        </div>
-
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
-                        <div class="input-group-append">
-                            <button class="btn btn-success" type="button">Love it</button>
-                        </div>
+                    <div class="card-header">
+                        {{ __('会員名簿') }}
                     </div>
 
+                    {{--                        検索機能　漢字での検索のみ  --}}
+                    <div class="card-header">
+                        {{ __('名前検索') }}
+                        <form method="POST" action="{{ route('users_list.search')}}">
+                            @csrf
+                            <div class="input-group">
+                                <input type="text" name="name" class="form-control" placeholder="漢字で入力  一部分でも可">
+                                <button type="submit" class="btn btn-primary">{{ __('検索') }}</button>
+                            </div>
+                        </form>
+                    </div>
 
 
                     <div class="card-body">
