@@ -40,10 +40,10 @@
                     お知らせ
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">修正・更新情報</h5>
+                    <p class="card-title lead">修正・更新情報</p>
                     <p class="card-text">8/23  課題追加修正    スクール課題を入力できるようにしました</p>
                     <p class="card-text">8/21  ユーザー情報修正    段位を入力できるようにしました</p>
-                    <p class="card-text">8/21  TODO道場画面修正   壁の角度表示修正、自分の段位が表示されるようにしました</p>
+                    <p class="card-text">8/21  スコア表の画面修正   壁の角度表示修正、自分の段位が表示されるようにしました</p>
                     <p class="card-text">8/19  ユーザー一覧画修正  1ページあたり50件表示できるようにしました</p>
                     <p class="card-text">8/19  ユーザー一覧画修正  ページの上部にもページ送りボタンを追加しました</p>
                 </div>
