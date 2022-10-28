@@ -17,7 +17,6 @@ class CreateScoresTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('problem_id');
-            $table->boolean('status');
             $table->timestamps();
         });
     }
@@ -30,8 +29,5 @@ class CreateScoresTable extends Migration
     public function down()
     {
         Schema::dropIfExists('scores');
-//        Schema::table('scores', function (Blueprint $table) {
-//            $table->dropColumn('status');
-//        });
     }
 }
