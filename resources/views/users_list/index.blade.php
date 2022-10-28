@@ -7,18 +7,27 @@
                 <div class="card px-0">
                     <div class="card-header">{{ __('会員名簿') }}</div>
 
-                    {{--                        検索機能　未実装--}}
-                    {{--                    <div class="card-header">--}}
-                    {{--                        <h6>{{ __('検索') }}</h6>--}}
-                    {{--                        <div>--}}
-                    {{--                            <form method="POST" action="{{ route('users_list.index')}}">--}}
-                    {{--                                @csrf--}}
-                    {{--                                <input type="text" name="name" class="form-control">--}}
-                    {{--                                <button type="submit" class="btn btn-primary">{{ __('検索') }}</button>--}}
-                    {{--                            </form>--}}
+                    {{--                        検索機能　名前のみ  --}}
+                                        <div class="card-header">
+                                            <h6>{{ __('名前検索') }}</h6>
+                                            <div>
+                                                <form method="POST" action="{{ route('users_list.search')}}">
+                                                    @csrf
+                                                    <input type="text" name="name" class="form-control">
+                                                    <button type="submit" class="btn btn-primary">{{ __('検索') }}</button>
+                                                </form>
 
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
+                                            </div>
+                                        </div>
+
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                        <div class="input-group-append">
+                            <button class="btn btn-success" type="button">Love it</button>
+                        </div>
+                    </div>
+
+
 
                     <div class="card-body">
                         @if (session('status'))
@@ -55,40 +64,10 @@
                                             @endif
                                         </td>
                                         <td>{{$user->age}}</td>
-                                        <td>
-                                            @if(0 === $user->class)
-                                                一般
-                                            @elseif(1 === $user->class)
-                                                専門・大学
-                                            @elseif(2 === $user->class)
-                                                高校生以下
-                                            @elseif(3 === $user->class)
-                                                キッズ
-                                            @else
-                                                不明
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if(0 === $user->grade)
-                                                達人
-                                            @elseif(1 === $user->grade)
-                                                黒帯
-                                            @elseif(2 === $user->grade)
-                                                上級
-                                            @elseif(3 === $user->grade)
-                                                赤帯
-                                            @elseif(4 === $user->grade)
-                                                中級
-                                            @elseif(5 === $user->grade)
-                                                小結
-                                            @elseif(6 === $user->grade)
-                                                白帯
-                                            @elseif(7 === $user->grade)
-                                                初級
-                                            @else
-                                                未設定
-                                            @endif
-                                        </td>                                        {{--    ユーザごとの詳細確認画面へ--}}
+                                        <td>{{\App\Models\User::convUserClass($user->class)}}</td>
+                                        <td>{{\App\Models\User::convUserGrade($user->grade)}}</td>
+
+                                        {{--    ユーザごとの詳細確認画面へ--}}
                                         <td class="text-center">
                                             <a href="{{route('users_list.show', $user)}}">
                                                 <button type="button" class="btn btn-outline-primary">

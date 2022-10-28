@@ -15,24 +15,16 @@ class UsersListController extends Controller
      */
     public function index()
     {
-        $users = User::getUser();
-
+        $users = User::getUser('');
         return view('users_list.index', compact('users'));
-
     }
 
-//    ユーザー検索用　未実装
-//    public function search(Request $request)
-//    {
-////        dd($request->name);
-//        $users = User::where([
-////            ['name', 'like', "%". $request->name . "%"],
-//            ['kana', 'like', "%". $request->name . "%"]
-//        ])->paginate(5);
-////        dd($users);
-//
-//        return view('users_list.index', compact('users'));
-//    }
+//    ユーザー検索用
+    public function search(Request $request)//indexに機能まとめた
+    {
+        $users = User::getUser($request->name);
+        return view('users_list.index', compact('users'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -115,7 +107,6 @@ class UsersListController extends Controller
 //            'address' => ['required', 'string', 'max:100'],
 //            'phone' => ['required', 'string', 'max:20'],
         ]);
-//dd($inputs);
         User::where('id', $id)->update($inputs);
 
         return back()->with('status', '更新しました');

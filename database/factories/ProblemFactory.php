@@ -13,7 +13,7 @@ class ProblemFactory extends Factory
      */
     public function definition()
     {
-        //ランダムに入れたい語句を配列に格納
+        //ランダムに入れたい語句を配列に格納する場合
         $array_color = [
             'あか',
             'あお',
@@ -42,7 +42,7 @@ class ProblemFactory extends Factory
         ];
 
         return [
-            //配列内のワードでランダム出力
+            //配列内のワードでランダム出力する場合
             'dimension' => $this->faker->randomElement(['A', 'B', 'C', 'D']),
             'grade' => $this->faker->randomElement(['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '20', '21']),
             'hold_color' => $this->faker->randomElement($array_color),

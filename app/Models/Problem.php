@@ -87,9 +87,9 @@ class Problem extends Model
             return '7級';
         }elseif ($param == "10"){
             return '8級';
-        }elseif ($param == "21"){
+        }elseif ($param == "20"){
             return 'スクール';
-        }elseif ($param == "22"){
+        }elseif ($param == "21"){
             return 'エクストラ';
         }else{
             return '不明';
@@ -121,9 +121,9 @@ class Problem extends Model
             return 'pcc-pink';
         }elseif ($param == "10"){
             return 'pcc-pink';
-        }elseif ($param == "21"){
+        }elseif ($param == "20"){
             return 'pcc-orange';
-        }elseif ($param == "22"){
+        }elseif ($param == "21"){
             return 'pcc-orange';
         }else{
             return '不明';
@@ -140,6 +140,6 @@ class Problem extends Model
     {
         //スクール課題のみ取得
         //カラム dimension,gradeそれぞれ昇順でソート
-        return Problem::wherebetween('grade', [21, 22])->orderBy('dimension')->orderBy('grade')->get();
+        return Problem::wherebetween('grade', [20, 21])->orderBy('dimension')->orderBy('grade')->get();
     }
 }

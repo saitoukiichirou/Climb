@@ -30,6 +30,7 @@ Route::post('/success', 'ScoresController@success')->name('scores.success');
 //管理者権限のみアクセス可能
 Route::middleware(['can:admin'])->group(function(){
     Route::resource('/users_list', 'UsersListController');
+    Route::post('/users_list', 'UsersListController@search')->name('users_list.search');
     Route::get('/scores/{score}', 'ScoresController@show')->name('scores.show');
 //    Route::resource('/scores', 'ScoresController');
     Route::resource('/records', 'RecordsController');

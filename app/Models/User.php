@@ -47,29 +47,33 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-//        'member_number' => 'integer',
     ];
 
     public function roles()
     {
         return $this->belongsToMany('App\Models\Role');
     }
+
     public function scores(){
         return $this->hasMany('App\Models\Score');
     }
 
     public static function editUser($edit_user_array)
     {
-//        $user_id = $edit_user_array->id;
         $form = $edit_user_array->all;
         User::where('id', $edit_user_array->id)->update();
-        //
     }
 
-    public function getUser()
+    public function getUser($param)
     {
-        //カラムがtext型なので数字に変換,さらにペジネーション50件毎
-        $users = User::orderByRaw('CAST(member_number as signed) ASC')->paginate(50);
+        if (!isset($param)){
+            //カラムがtext型なので数字に変換,さらにペジネーション50件毎
+            $users = User::orderByRaw('CAST(member_number as signed) ASC')->paginate(50);
+        }
+
+        if (isset($param)){
+            $users = User::where('name', 'like', "%". $param . "%")->orderByRaw('CAST(member_number as signed) ASC')->paginate(50);
+        }
 
         //生年月日かた年齢を計算し追加する
         foreach ($users as $user){
@@ -79,8 +83,23 @@ class User extends Authenticatable
             $age = floor(($now - $birthday) / 10000);
             $user['age'] = $age;
         }
-
         return $users;
+    }
+
+    //値を職業クラスに変換
+    public function convUserClass($param)
+    {
+        if ($param === 0){
+            return '一般';
+        }elseif ($param === 1){
+            return '専門・大学';
+        }elseif ($param === 2){
+            return '高校生以下';
+        }elseif ($param === 3){
+            return 'キッズ';
+        }else{
+            return '未設定';
+        }
     }
 
     //値を段位に変換
@@ -103,7 +122,7 @@ class User extends Authenticatable
         }elseif ($param === 7){
             return '初級';
         }else{
-            return '初級';
+            return '未設定';
         }
     }
 

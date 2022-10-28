@@ -128,7 +128,7 @@
                                                         @if($problem->scores->count())
                                                             {{$problem->scores->count()}}人
                                                         @else
-                                                            {{ __('無し') }}
+                                                            無し
                                                         @endif
                                                     </td>
 
@@ -163,7 +163,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection
 
