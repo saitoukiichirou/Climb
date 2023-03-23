@@ -65,6 +65,13 @@
 {{--                                @endif--}}
 
                             </div>
+                            <div class="text-center mt-4">
+                            <p class="text-danger"><i class="fa-solid fa-triangle-exclamation"> 注意  このページはサンプルで公開しているのものです <i class="fa-solid fa-triangle-exclamation"></i></i></p>
+                                <p>テストログイン情報</p>
+                                <p>管理者：会員番号欄 「admin」 パスワード欄 「admin」</p>
+                                <p>ゲスト：会員番号欄 「guest」 パスワード欄 「guest」</p>
+                            </div>
+
                         </div>
                     </form>
                 </div>

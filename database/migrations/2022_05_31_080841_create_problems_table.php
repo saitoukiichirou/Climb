@@ -24,6 +24,21 @@ class CreateProblemsTable extends Migration
         });
     }
 
+//リード用のマイグレーションコピペ用　あとで消す
+
+//     public function up()
+//         {
+//             Schema::create('lead_problems', function (Blueprint $table) {
+//                 $table->id();
+//                 $table->string('grade', 10);
+//                 $table->string('hold_color', 10);
+//                 $table->string('tpo', 10)->nullable();
+//                 $table->string('setter', 100)->nullable();
+//                 $table->timestamps();
+//             });
+//         }
+
+//
     /**
      * Reverse the migrations.
      *
