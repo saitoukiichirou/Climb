@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class LeadProblem extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'grade',
+        'hold_color',
+        'top',
+        'setter',
+    ]
 }

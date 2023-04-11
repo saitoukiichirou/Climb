@@ -17,9 +17,9 @@
                         <div class="swiper-container tab-menu">
                             <div class="swiper-wrapper">
                                 {{-- ヘッダーの幅は親要素の50パーセント --}}
-                                <div class="swiper-slide w-50">ボルダー課題</div>
-                                <div class="swiper-slide w-50">スクール課題</div>
-{{--                                <div class="swiper-slide">リード壁</div>--}}
+                                <div class="swiper-slide w-33">ボルダー課題</div>
+                                <div class="swiper-slide w-33">スクール課題</div>
+                                <div class="swiper-slide w-34">リード壁</div>
 {{--                                <div class="swiper-slide">キッズウォール</div>--}}
                             </div>
                         </div>
@@ -154,6 +154,58 @@
 
                                                 </tr>
                                             @endforeach
+                                        </tboby>
+                                    </table>
+                                </div>
+
+                                {{--ここから リード課題 のコンテンツ--}}
+                                <div class="swiper-slide">
+                                    <h1 class="text-center">リード壁</h1>
+
+                                    <table class="table table-hover flex justify-content-center">
+                                        <thead>
+                                        <tr>
+                                            <th>グレード</th>
+                                            <th>ホールド色</th>
+                                            <th>セッター名</th>
+                                            <th>追加日</th>
+                                            <th>完登者数</th>
+                                            <th>編集</th>
+                                            <th>削除</th>
+                                        </tr>
+                                        </thead>
+                                        <tboby>
+                                             {{--@foreach($problems_scl as $problem)--}}
+                                                <tr>
+                                                    <td>グレードが入る</td>
+                                                    <td>ホールド色が入る</td>
+                                                    <td>セッター名が入る</td>
+                                                    <td>課題作成年月日が入る</td>
+                                                    <td>人数が入る</td>
+
+
+                                                    {{--                                        課題ごとの編集画面へ--}}
+                                                    <td class="p-1">
+                                                        {{--<a href="{{route('problems.edit', $problem)}}">--}}
+                                                            <button type="button" class="btn btn-outline-primary pr-2">
+                                                                <i class="fa-solid fa-file-pen"></i>
+                                                            </button>
+                                                         {{--</a>--}}
+                                                    {{--</td>--}}
+
+                                                    {{--                                        課題の削除--}}
+                                                    <td class="p-1">
+                                                         {{--<form method="post" action="{{route('problems.destroy', $problem)}}">--}}
+                                                             {{--@csrf--}}
+                                                             {{--@method('delete')--}}
+                                                            <button type="submit" class="btn btn-outline-danger" onClick="return confirm('本当に削除しますか？');">
+                                                                <i class="fa-solid fa-trash-can"></i>
+                                                            </button>
+                                                         {{--</form>--}}
+                                                    </td>
+
+                                                </tr>
+                                             {{--@endforeach--}}
                                         </tboby>
                                     </table>
                                 </div>
