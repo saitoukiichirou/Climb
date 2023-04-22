@@ -35,5 +35,6 @@ Route::middleware(['can:admin'])->group(function(){
 //    Route::resource('/scores', 'ScoresController');
     Route::resource('/records', 'RecordsController');
     Route::resource('/problems', 'ProblemsController');
+    Route::resource('/lead_problems', 'LeadProblemsController');
 });
 
