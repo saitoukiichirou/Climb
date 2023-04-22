@@ -7,10 +7,14 @@
                 <div class="card px-0">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         {{ __('課題一覧') }}
-
-                        <a href="{{route('problems.create')}}" class="mr-0">
-                            <button type="button" class="btn btn-primary">{{ __('新規追加')}}</button>
-                        </a>
+                        <div>
+                            <a href="{{route('problems.create')}}" class="text-decoration-none">
+                                <button type="button" class="btn btn-primary">{{ __('ボルダー課題追加')}}</button>
+                            </a>
+                            <a href="{{route('problems.create')}}" class="mr-0">
+                                <button type="button" class="btn btn-primary">{{ __('リード課題追加')}}</button>
+                            </a>
+                        </div>
                     </div>
                     <div class="card-header p-0 border-0">
                         {{--   スライド切り替えメニュー--}}
@@ -177,11 +181,11 @@
                                         <tboby>
                                              {{--@foreach($problems_scl as $problem)--}}
                                                 <tr>
-                                                    <td>グレードが入る</td>
-                                                    <td>ホールド色が入る</td>
-                                                    <td>セッター名が入る</td>
-                                                    <td>課題作成年月日が入る</td>
-                                                    <td>人数が入る</td>
+                                                    <td>グレード</td>
+                                                    <td>ホールド色</td>
+                                                    <td>セッター名</td>
+                                                    <td>課題作成年月日</td>
+                                                    <td>人数</td>
 
 
                                                     {{--                                        課題ごとの編集画面へ--}}
