@@ -35,7 +35,21 @@ class LeadProblemsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $inputs = $request->validate([
+            'grade' => ['required', 'string', 'max:10'],
+            'hold_color' => ['required', 'max:10'],
+            'top' => ['nullable', 'int', 'max:40'],
+            'setter' => ['max:20'],
+        ]);
+
+        $lead_problem = new LeadProblem();
+        $lead_problem->grade = $inputs ['grade'];
+        $lead_problem->hold_color = $inputs ['hold_color'];
+        $lead_problem->top = $inputs ['top'];
+        $lead_problem->setter = $inputs ['setter'];
+        $lead_problem->save();
+        return back()->with('message', 'リード課題追加完了！');
+
     }
 
     /**

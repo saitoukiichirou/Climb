@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10 mt-6">
                 <div class="card">
-                    <div class="card-header">{{ __('課題新規登録') }}
+                    <div class="card-header">{{ __('リード課題新規登録') }}
                         <span class="text-danger"> ※印は入力必須</span>
                     </div>
 
@@ -29,38 +29,42 @@
                         {{--            投稿フォーム 始まり--}}
                         <form method="post" action="{{route('lead_problems.store')}}" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group">
-                                <label for="dimension">※セット面</label><br>
-                                <input type="radio" class="btn-check" name="dimension" id="dimension-a" value="A" autocomplete="off" checked>
-                                <label class="btn btn-outline-dark" for="dimension-a">A面</label>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="dimension">※セット面</label><br>--}}
+{{--                                <input type="radio" class="btn-check" name="dimension" id="dimension-a" value="A" autocomplete="off" checked>--}}
+{{--                                <label class="btn btn-outline-dark" for="dimension-a">A面</label>--}}
 
-                                <input type="radio" class="btn-check" name="dimension" id="dimension-b" value="B" autocomplete="off">
-                                <label class="btn btn-outline-dark" for="dimension-b">B面</label>
+{{--                                <input type="radio" class="btn-check" name="dimension" id="dimension-b" value="B" autocomplete="off">--}}
+{{--                                <label class="btn btn-outline-dark" for="dimension-b">B面</label>--}}
 
-                                <input type="radio" class="btn-check" name="dimension" id="dimension-c" value="C" autocomplete="off">
-                                <label class="btn btn-outline-dark" for="dimension-c">C面</label>
+{{--                                <input type="radio" class="btn-check" name="dimension" id="dimension-c" value="C" autocomplete="off">--}}
+{{--                                <label class="btn btn-outline-dark" for="dimension-c">C面</label>--}}
 
-                                <input type="radio" class="btn-check" name="dimension" id="dimension-d" value="D" autocomplete="off">
-                                <label class="btn btn-outline-dark" for="dimension-d">D面</label>
-                            </div>
+{{--                                <input type="radio" class="btn-check" name="dimension" id="dimension-d" value="D" autocomplete="off">--}}
+{{--                                <label class="btn btn-outline-dark" for="dimension-d">D面</label>--}}
+{{--                            </div>--}}
 
                             <div class="form-group">
                                 <label for="title">※グレード</label>
                                 <select name="grade" class="form-control">
-                                    <option value="" selected disabled>リストから選択してください</option>
-                                    <option value="00">3段</option>
-                                    <option value="01">2段</option>
-                                    <option value="02">初段</option>
-                                    <option value="03">1級</option>
-                                    <option value="04">2級</option>
-                                    <option value="05">3級</option>
-                                    <option value="06">4級</option>
-                                    <option value="07">5級</option>
-                                    <option value="08">6級</option>
-                                    <option value="09">7級</option>
-                                    <option value="10">8級</option>
-                                    <option value="21">スクール</option>
-                                    <option value="22">エクストラ</option>
+                                    <option value="" @if (empty(old('grade'))) selected @endif disabled>リストから選択してください</option>
+                                    <option value="00" @if("00" == old('grade')) selected @endif >13d</option>
+                                    <option value="01" @if("01" == old('grade')) selected @endif >13c</option>
+                                    <option value="02" @if("00" == old('grade')) selected @endif >13b</option>
+                                    <option value="03" @if("01" == old('grade')) selected @endif >13a</option>
+                                    <option value="04" @if("02" == old('grade')) selected @endif >12d</option>
+                                    <option value="05" @if("03" == old('grade')) selected @endif >12c</option>
+                                    <option value="06" @if("02" == old('grade')) selected @endif >12b</option>
+                                    <option value="07" @if("03" == old('grade')) selected @endif >12a</option>
+                                    <option value="08" @if("04" == old('grade')) selected @endif >11d</option>
+                                    <option value="09" @if("05" == old('grade')) selected @endif >11c</option>
+                                    <option value="10" @if("06" == old('grade')) selected @endif >11b</option>
+                                    <option value="11" @if("07" == old('grade')) selected @endif >11a</option>
+                                    <option value="12" @if("08" == old('grade')) selected @endif >10d</option>
+                                    <option value="13" @if("09" == old('grade')) selected @endif >10c</option>
+                                    <option value="14" @if("10" == old('grade')) selected @endif >10b</option>
+                                    <option value="15" @if("11" == old('grade')) selected @endif >10a</option>
+                                    <option value="16" @if("12" == old('grade')) selected @endif >5.9</option>
                                 </select>
                             </div>
 
@@ -70,8 +74,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="title">※テープの形</label>
-                                <input type="text" name="tape_form" class="form-control" id="title" value="{{old('tape_form')}}" placeholder="例：■ × / など">
+                                <label for="title">TOPまでの手数</label>
+                                <input type="text" name="top" class="form-control" id="title" value="{{old('top')}}" placeholder="例：20など">
                             </div>
 
                             <div class="form-group">

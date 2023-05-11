@@ -25,7 +25,7 @@ class CreateLeadProblemsTable extends Migration
                 $table->id();
                 $table->string('grade', 10);
                 $table->string('hold_color', 10);
-                $table->string('tpo', 10)->nullable();
+                $table->string('top', 10)->nullable();
                 $table->string('setter', 100)->nullable();
                 $table->timestamps();
             });

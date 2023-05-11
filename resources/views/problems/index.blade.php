@@ -11,7 +11,7 @@
                             <a href="{{route('problems.create')}}" class="text-decoration-none">
                                 <button type="button" class="btn btn-primary">{{ __('ボルダー課題追加')}}</button>
                             </a>
-                            <a href="{{route('problems.create')}}" class="mr-0">
+                            <a href="{{route('lead_problems.create')}}" class="mr-0">
                                 <button type="button" class="btn btn-primary">{{ __('リード課題追加')}}</button>
                             </a>
                         </div>

@@ -14,5 +14,6 @@ class LeadProblem extends Model
         'hold_color',
         'top',
         'setter',
-    ]
+    ];
+
 }
