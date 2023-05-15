@@ -20,7 +20,7 @@
                         {{--   スライド切り替えメニュー--}}
                         <div class="swiper-container tab-menu">
                             <div class="swiper-wrapper">
-                                {{-- ヘッダーの幅は親要素の50パーセント --}}
+                                {{-- ヘッダーの幅は親要素の1/3づつ --}}
                                 <div class="swiper-slide w-33">ボルダー課題</div>
                                 <div class="swiper-slide w-33">スクール課題</div>
                                 <div class="swiper-slide w-34">リード壁</div>
@@ -171,6 +171,7 @@
                                         <tr>
                                             <th>グレード</th>
                                             <th>ホールド色</th>
+                                            <th>手数</th>
                                             <th>セッター名</th>
                                             <th>追加日</th>
                                             <th>完登者数</th>
@@ -179,12 +180,13 @@
                                         </tr>
                                         </thead>
                                         <tboby>
-                                             {{--@foreach($problems_scl as $problem)--}}
+                                             @foreach($problems_lead as $problem)
                                                 <tr>
-                                                    <td>グレード</td>
-                                                    <td>ホールド色</td>
-                                                    <td>セッター名</td>
-                                                    <td>課題作成年月日</td>
+                                                    <td>{{\App\Models\LeadProblem::convProblemGrade($problem->grade)}}</td>
+                                                    <td>{{$problem->hold_color}}</td>
+                                                    <td>{{$problem->top}}</td>
+                                                    <td>{{$problem->setter}}</td>
+                                                    <td>{{$problem->created_at->format('Y-m-d')}}</td>
                                                     <td>人数</td>
 
 
@@ -209,7 +211,7 @@
                                                     </td>
 
                                                 </tr>
-                                             {{--@endforeach--}}
+                                             @endforeach
                                         </tboby>
                                     </table>
                                 </div>

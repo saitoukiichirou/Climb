@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LeadProblem;
 use App\Models\Problem;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,9 @@ class ProblemsController extends Controller
         //カラム dimension,gradeそれぞれ昇順でソート
         $problems = Problem::getStdProblem();
         $problems_scl = Problem::getSclProblem();
-        return view('problems.index', compact('problems', 'problems_scl'));
+        $problems_lead = LeadProblem::getLeadProblem();
+
+        return view('problems.index', compact('problems', 'problems_scl', 'problems_lead'));
     }
 
     /**
@@ -27,7 +30,6 @@ class ProblemsController extends Controller
      */
     public function create()
     {
-
         return view('problems.create');
     }
 
