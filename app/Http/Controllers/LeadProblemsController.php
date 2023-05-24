@@ -71,7 +71,7 @@ class LeadProblemsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('leadproblems.edit');
     }
 
     /**
