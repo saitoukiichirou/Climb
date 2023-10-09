@@ -192,12 +192,12 @@
 
                                                     {{--                                        課題ごとの編集画面へ--}}
                                                     <td class="p-1">
-                                                        {{--<a href="{{route('problems.edit', $problem)}}">--}}
+                                                        <a href="{{route('lead_problems.edit', $problem)}}">
                                                             <button type="button" class="btn btn-outline-primary pr-2">
                                                                 <i class="fa-solid fa-file-pen"></i>
                                                             </button>
-                                                         {{--</a>--}}
-                                                    {{--</td>--}}
+                                                         </a>
+                                                    </td>
 
                                                     {{--                                        課題の削除--}}
                                                     <td class="p-1">
